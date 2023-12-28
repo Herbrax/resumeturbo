@@ -536,6 +536,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }); // Enable listeners
 
 document.addEventListener('DOMContentLoaded', function () {
+  console.log("ParticleGround Loaded")
   particleground(document.getElementById('particleground'), {
     dotColor: '#5cbdaa',
     lineColor: '#5cbdaa'
