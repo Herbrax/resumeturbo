@@ -1,0 +1,519 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow:1;
+}
+
+.link{
+    font-family: "Oswald";
+    font-size: 24px;
+    color: #324E2E;
+    text-decoration: underline;
+}
+
+.searchContent {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 100wh;
+}
+.leftMenu {
+    background-color: #F3F6EA;
+    padding: 24px;
+    height: 100wh;
+    display: flex;
+    flex-direction: column;
+}
+.logo {
+    font-family: "Oswald";
+    font-size: 36px;
+    color: #324E2E;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+}
+.dashboardContent {
+    background-color: white;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    flex: 1;
+}
+.menuRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 12px;
+}
+.menuItemText {
+    font-family: "Overpass";
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    margin-left: 12px;
+}
+.menuRow:hover {
+    background-color: #CFE2CE;
+}
+
+.headerRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+.productHeading {
+    font-family: "Overpass";
+    font-size: 35px;
+    font-weight: 600;
+    color: #31312F;
+    margin-top: 8px;
+}
+
+.primaryButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    color: white;
+    font-family: "Overpass";
+    font-size: 15px;
+    background-color: #324E2E;
+    border-radius: 8px;
+    gap: 12px;
+    cursor: pointer;
+}
+.primaryButton:hover {
+    background-color: #4A7344;
+}
+
+.addButton {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    background-color: #324E2E;
+    color: white;
+    font-family: "Overpass";
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.addButton:hover {
+    background-color: #4A7344;
+}
+
+
+.tableContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-top: 12px;
+}
+.tableRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.scientificNameColumn {
+    width: 30%;
+    font-family: "Overpass";
+    color: #31312F;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.scientificNameColumn:hover {
+    text-decoration: underline;
+    color: #324E2E;
+}
+.commonNamesColumn {
+    width: 40%;
+    font-family: "Overpass";
+    color: #31312F;
+    font-size: 15px;
+    font-weight: 400;
+}
+.activeColumn {
+    width: 10%;
+    font-family: "Overpass";
+    color: #31312F;
+    font-size: 15px;
+    font-weight: 400;
+}
+.actionsColumn {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+.tableIconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    color: #4F4F4F;
+    cursor: pointer;
+}
+.tableIconContainer:hover {
+    background-color: #CFE2CE
+}
+.backButtonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #31312F;
+    font-family: "Overpass";
+    padding: 6px;
+    margin-left: -6px;
+    flex-shrink: 1;
+}
+.backButtonContainer:hover {
+    color: #324E2E;
+}
+.fieldBoxes {
+    display: flex; /* Use flexbox for better alignment */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    align-items: center; /* Align items vertically in the center */
+    gap: 10px; /* Space between child elements */
+}
+#resumeSkillsContainer #skillTypeField {
+    width: 20%;
+}
+
+#resumeSkillsContainer #addSkillField {
+    width: 80%;
+}
+
+.commonNameChipContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: -6px;
+    flex: 1;
+    align-items: center;
+}
+.commonNameChip {
+    display: flex;
+    flex-direction: row;
+    padding: 6px;
+    background-color: #F1F1F1;
+    font-family: "Overpass";
+    color: #31312F;
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 8px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+}
+.commonNameChipButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 18px;
+    width: 18px;
+    border-radius: 9px;
+    background-color: #D2D6E0;
+    margin-left: 6px;
+    cursor: pointer;
+}
+.commonNameChipButton:hover {
+    background-color: #999999;
+}
+
+.toggleOptionSelected:hover {
+    background-color: #324E2E;
+    font-weight: 600;
+    color: white;
+    cursor: default;
+}
+.secondaryButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    color: #31312F;
+    font-family: "Overpass";
+    font-size: 15px;
+    background-color: #F1F1F1;
+    border-radius: 8px;
+    gap: 12px;
+    cursor: pointer;
+}
+.secondaryButton:hover {
+    background-color: #CFE2CE;
+}
+.accessToggle {
+    padding: 12px;
+    background-color: #F1F1F1;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Overpass";
+    font-size: 15px;
+    text-align: center;
+}
+.accessToggle:hover {
+    background-color: #CFE2CE;
+}
+.accessToggleSelected {
+    padding: 12px;
+    background-color: #AABFA8;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Overpass";
+    font-size: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+.userFieldLabel {
+    padding: 16px;
+    font-family: "Overpass";
+    font-size: 15px;
+    font-weight: 600;
+    color: #31312F;
+    margin-bottom: 6px;
+    flex: 1;
+}
+.userFieldBox {
+    border: 1px solid #b7c1ba;
+    border-radius:20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+}
+
+.userTextInput {
+    border: none;
+    padding: 16px;
+    font-family: "Overpass";
+    font-size: 15px;
+    color: #4F4F4F;
+    font-weight: 600;
+    flex: 1;
+}
+
+.userTextArea {
+    overflow-y: hidden;
+    width: 100%;
+    border-radius: 20px;
+    padding-top:15px;
+    padding-bottom:20px;
+    padding-left:15px;
+    padding-right:15px;
+    font-family: "Overpass";
+    font-size: 15px;
+    color: #4F4F4F;
+    font-weight: 600;
+    flex: 1;
+}
+
+.userTextInput:focus {
+    outline: none;
+}
+
+.userAddPropertyButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 12px;
+    margin-right: 12px;
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
+    background-color: #F1F1F1;
+    color: #31312F;
+    cursor: pointer;
+}
+.userAddPropertyButton:hover {
+    background-color: #CFE2CE;
+}
+.userSection {
+    margin-bottom: 24px;
+}
+
+.userSectionTitle {
+    font-family: "Overpass";
+    font-size: 20px;
+    font-weight: 600;
+    color: #324E2E;
+    margin-bottom: 12px;
+}
+
+.userAddButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    font-family: "Overpass";
+    font-size: 15px;
+    color: white;
+    background-color: #324E2E;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.userAddButton:hover {
+    background-color: #4A7344;
+}
+
+
+/* Checkbox styles for 'Show in Resume' */
+.userCheckboxLabel {
+    font-family: "Overpass";
+    font-size: 15px;
+    color: #31312F;
+    margin-left: 8px;
+}
+
+.userCheckbox {
+    accent-color: #324E2E;
+}
+
+
+/* Styles for dynamically added education and work experience entries */
+.dynamicEntry {
+    position: relative;
+    overflow: visible; /* Ensure content does not clip */
+    background-color: #f5f5f5; /* Slightly grayish background */
+    border: 1px solid #F2F2F2;
+    padding: 20px;
+}
+
+
+.entryDeleteButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 18px;
+    width: 18px;
+    border-radius: 9px;
+    background-color: #D2D6E0;
+    cursor: pointer;
+    z-index: 10; /* Ensure it's above other content */
+}
+
+.entryDeleteButton:hover {
+    background-color: #999999;
+}
+
+.popupContainer {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    z-index: 1000; /* Sit on top */
+}
+
+.popupContent {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+}
+.fieldRow2 {
+    display: flex;
+    justify-content: center; /* Vertical alignment */
+    align-items: center; /* Horizontal alignment */
+
+}
+
+.fieldRow2 .userFieldBox {
+    width: 50%; 
+}
+
+.fieldRow3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fieldRow3 .userFieldBox {
+    width: 33%; /* Adjust the width to slightly less than 33% to account for any padding/margins */
+}
+
+.gridFormContainer {
+    display: grid;
+    grid-template-columns: min-content 1fr min-content 1fr; /* Adjusts column widths */
+    grid-gap: 10px; /* Adjust space between grid items */
+    /* Add any additional styling here */
+}
+
+.userFieldLabel, .userFieldBox {
+    margin-bottom: 10px; /* Spacing for label and input box */
+}
+
+.gridLanguageContainer {
+    display: grid;
+    grid-template-columns: min-content 1fr; /* Two columns: one for label and one for input */
+    grid-template-rows: auto auto; /* Two rows: one for the first line and one for the second */
+    grid-gap: 10px; /* Spacing between grid items */
+    align-items: center; /* Aligns items vertically */
+}
+
+.gridLanguageContainer .userFieldLabel {
+    grid-column: 1 / 2; /* Places label in the first column */
+    grid-row: 1 / 2; /* Places label in the first row */
+}
+
+.gridLanguageContainer .userFieldBox {
+    grid-column: 2 / 3; /* Places input box in the second column */
+    grid-row: 1 / 2; /* Places input box in the first row */
+    display: flex; /* Ensures input and button are in a line */
+    align-items: center; /* Aligns items vertically in the box */
+}
+
+.gridLanguageContainer #languageChipContainer {
+    grid-column: 1 / 3; /* Spans across both columns */
+    grid-row: 2 / 3; /* Placed in the second row */
+}
