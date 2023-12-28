@@ -1,7 +1,9 @@
 //********  Firebase imports, refs and config ********//
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getFirestore, getDoc, setDoc, doc} from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
- 
+
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyD5JD6v_R14vchD1TgfgSBKlNDE0PYPDoE",
   authDomain: "cvgen-906e8.firebaseapp.com",
@@ -532,3 +534,10 @@ document.addEventListener('DOMContentLoaded', function() {
   initSkillInputListener();
   initializeTextAreas();
 }); // Enable listeners
+
+document.addEventListener('DOMContentLoaded', function () {
+  particleground(document.getElementById('particleground'), {
+    dotColor: '#5cbdaa',
+    lineColor: '#5cbdaa'
+  });
+}, false);

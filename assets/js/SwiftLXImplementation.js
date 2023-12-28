@@ -362,9 +362,22 @@ function downloadLatexFile() {
     setTimeout(() => {
       URL.revokeObjectURL(objectURL);
     }, 30000);
-    console.log(objectURL);
-    pdfbox.innerHTML = `<embed src="${objectURL}" width="100%" height="400px" type="application/pdf">`;
+    const pdfViewer = document.getElementById("pdf-viewer");
+    pdfViewer.src = `assets/js/pdfjs/web/viewer.html?file=${encodeURIComponent(objectURL)}`;
+    console.log(`assets/js/pdfjs/web/viewer.html?file=${encodeURIComponent(objectURL)}`);
   }
 }
 
 init();
+
+document.addEventListener('DOMContentLoaded', function() {
+  const editorInkElement = document.getElementById("editorInk");
+
+  // Check if the element exists
+  if (editorInkElement) {
+      editorInkElement.addEventListener('click', function() {
+          downloadLatexFile();
+          console.log("Downloaded latex")
+      });
+  }
+});
