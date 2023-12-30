@@ -1,0 +1,101 @@
+\documentclass[11pt,a4paper,roman]{moderncv}
+\moderncvstyle{banking}
+\moderncvcolor{red}
+\nopagenumbers{}
+\usepackage[scale=0.9]{geometry}
+\usepackage{color}
+\newcommand*{\customcventry}[7][.25em]{
+  \begin{tabular}{@{}l} 
+    {\bfseries #4}
+  \end{tabular}
+  \hfill
+  \begin{tabular}{l@{}}
+     {\bfseries #5}
+  \end{tabular}\\
+  \begin{tabular}{@{}l} 
+    {\itshape #3}
+  \end{tabular}
+  \hfill
+  \begin{tabular}{l@{}}
+     {\itshape #2}
+  \end{tabular}
+  \ifx&#7&
+  \else{
+    \begin{minipage}{\maincolumnwidth}
+      \footnotesize #7
+    \end{minipage}}\fi
+  \par\addvspace{#1}
+}
+\newcommand*{\customcvproject}[4][.25em]{
+  \begin{tabular}{@{}l} 
+    {\small\bfseries #2} 
+  \end{tabular}
+  \hfill
+  \begin{tabular}{l@{}}
+     {\footnotesize\itshape #3}
+  \end{tabular}
+  \ifx&#4&
+  \else{\
+    \begin{minipage}{\maincolumnwidth}%
+      \footnotesize #4
+    \end{minipage}}\fi
+  \par\addvspace{#1}
+}
+\setlength{\tabcolsep}{12pt}
+%%%%%
+
+\name{Emily}{Chen}
+\address{2564 Brothers Avenue, Toronto, ON, M5O 5K5, Canada}
+\begin{document}
+\makecvtitle
+\vspace*{-23mm}
+\begin{center}
+\begin{tabular}{ c c c c }
+\faLanguage\enspace English, Mandarin & \faEnvelopeO\enspace emily.chen@email.com & \faGithub\enspace \href{https://github.com/emilychen}{} & \faMobile\enspace +1 (555) 123-4567  \\
+\end{tabular}
+\end{center}
+
+\section{ABOUT}
+As a data analyst with a strong background in statistical modeling and data visualization, I am seeking opportunities to leverage my skills in data-driven decision making and insights generation.
+
+\section{SKILLS}
+\textbf{Programming:} Python, R, SQL, Julia\\
+\textbf{Data Analysis:} Machine Learning, Data Visualization, Big Data\\
+\textbf{Tools:} Tableau, Power BI, Excel, Jupyter\\
+\textbf{Miscellaneous:} Git, Data Mining, Predictive Modeling, Agile
+
+\section{EDUCATION}
+\customcventry{2018 - 2022}{B.Sc. in Data Science}{University of Toronto}{Toronto, ON}{}{Graduated with honors, focusing on statistical methods and data analysis.}
+\customcventry{2020 - 2021}{Diploma in Big Data Analytics}{Humber College}{Toronto, ON}{}{Concentrated on big data technologies and applications.}
+
+\section{WORK EXPERIENCE}
+\customcventry{2022 - Present}{Data Analyst}{Insight Data Corp}{Toronto, ON}{}{
+    \begin{itemize}
+        \item Analyzed large datasets to identify trends and insights that informed business decisions.
+        \item Developed and automated reporting processes using Python and SQL.
+        \item Collaborated with cross-functional teams to understand data needs and deliver comprehensive analyses.
+    \end{itemize}
+}
+\customcventry{2021 - 2022}{Junior Data Analyst}{Market Trends Inc.}{Toronto, ON}{}{
+    \begin{itemize}
+        \item Assisted in the development of data models and algorithms to predict market trends.
+        \item Utilized data visualization tools to present insights to stakeholders.
+        \item Contributed to the improvement of data collection and analysis processes.
+    \end{itemize}
+}
+
+\section{PROJECTS}
+\customcvproject{Sales Data Analysis}{2021}{}{
+    \begin{itemize}
+        \item Analyzed sales data to identify patterns and provide actionable insights for marketing strategy adjustments.
+        \item Employed statistical analysis techniques and machine learning models.
+    \end{itemize}
+}
+\customcvproject{Customer Segmentation Study}{2022}{}{
+    \begin{itemize}
+        \item Conducted a comprehensive customer segmentation analysis for a retail company.
+        \item Implemented clustering algorithms to categorize customer groups based on purchasing behavior.
+    \end{itemize}
+}
+
+\end{document}

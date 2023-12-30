@@ -362,9 +362,13 @@ function downloadLatexFile() {
     setTimeout(() => {
       URL.revokeObjectURL(objectURL);
     }, 30000);
+    // Hide the carousel when the viewer is active
+    const carouselElement = document.getElementById("carousel");
+    if (carouselElement) {
+        carouselElement.style.display = "none";
+    }    
     const pdfViewer = document.getElementById("pdf-viewer");
     pdfViewer.src = `assets/js/pdfjs/web/viewer.html?file=${encodeURIComponent(objectURL)}`;
-    console.log(`assets/js/pdfjs/web/viewer.html?file=${encodeURIComponent(objectURL)}`);
   }
 }
 

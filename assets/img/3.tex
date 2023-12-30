@@ -1,0 +1,101 @@
+\documentclass[11pt,a4paper,roman]{moderncv}
+\moderncvstyle{banking}
+\moderncvcolor{blue}
+\nopagenumbers{}
+\usepackage[scale=0.9]{geometry}
+\usepackage{color}
+\newcommand*{\customcventry}[7][.25em]{
+  \begin{tabular}{@{}l} 
+    {\bfseries #4}
+  \end{tabular}
+  \hfill
+  \begin{tabular}{l@{}}
+     {\bfseries #5}
+  \end{tabular}\\
+  \begin{tabular}{@{}l} 
+    {\itshape #3}
+  \end{tabular}
+  \hfill
+  \begin{tabular}{l@{}}
+     {\itshape #2}
+  \end{tabular}
+  \ifx&#7&
+  \else{
+    \begin{minipage}{\maincolumnwidth}
+      \footnotesize #7
+    \end{minipage}}\fi
+  \par\addvspace{#1}
+}
+\newcommand*{\customcvproject}[4][.25em]{
+  \begin{tabular}{@{}l} 
+    {\small\bfseries #2} 
+  \end{tabular}
+  \hfill
+  \begin{tabular}{l@{}}
+     {\footnotesize\itshape #3}
+  \end{tabular}
+  \ifx&#4&
+  \else{\
+    \begin{minipage}{\maincolumnwidth}%
+      \footnotesize #4
+    \end{minipage}}\fi
+  \par\addvspace{#1}
+}
+\setlength{\tabcolsep}{12pt}
+%%%%%
+
+\name{Michael}{Lee}
+\address{1987 Fellas Road, Ottawa, ON, K1R 1R1, Canada}
+\begin{document}
+\makecvtitle
+\vspace*{-23mm}
+\begin{center}
+\begin{tabular}{ c c c c }
+\faLanguage\enspace English, French & \faEnvelopeO\enspace michael.lee@email.com & \href{https://github.com/michaellee}{\faGithub} & \faMobile\enspace +1 (555) 123-4567 \\
+\end{tabular}
+\end{center}
+
+\section{ABOUT}
+Experienced software developer with a strong background in full-stack development, especially in web technologies. Eager to apply my expertise in a challenging and innovative environment.
+
+\section{SKILLS}
+\textbf{Programming:} JavaScript, Python, Java, C\#\\
+\textbf{Web Development:} React, Angular, Node.js, Django\\
+\textbf{Databases:} MySQL, MongoDB, PostgreSQL\\
+\textbf{Tools:} Git, Docker, Jenkins, AWS
+
+\section{EDUCATION}
+\customcventry{2016 - 2020}{B.Sc. in Computer Science}{University of British Columbia}{Vancouver, BC}{}{Specialized in software development and web technologies.}
+\customcventry{2019 - 2020}{Diploma in Full-Stack Web Development}{BCIT}{Vancouver, BC}{}{Focused on modern web development frameworks and best practices.}
+
+\section{WORK EXPERIENCE}
+\customcventry{2020 - Present}{Software Developer}{InnovateX}{Vancouver, BC}{}{
+    \begin{itemize}
+        \item Developed and maintained scalable web applications for various clients.
+        \item Led a team in creating a highly successful e-commerce platform.
+        \item Collaborated closely with UX/UI designers to implement user-friendly interfaces.
+    \end{itemize}
+}
+\customcventry{2019 - 2020}{Intern Developer}{WebTech Solutions}{Vancouver, BC}{}{
+    \begin{itemize}
+        \item Assisted in the development of several web applications using React and Node.js.
+        \item Participated in agile development cycles and code reviews.
+        \item Implemented RESTful APIs and integrated third-party services.
+    \end{itemize}
+}
+
+\section{PROJECTS}
+\customcvproject{Social Media Analytics Tool}{2019}{}{
+    \begin{itemize}
+        \item Developed a tool for analyzing social media trends and user engagement.
+        \item Utilized machine learning algorithms for sentiment analysis and data visualization.
+    \end{itemize}
+}
+\customcvproject{Online Learning Platform}{2020}{}{
+    \begin{itemize}
+        \item Created an online learning platform with features for course management and student interaction.
+        \item Implemented adaptive learning algorithms to personalize content for users.
+    \end{itemize}
+}
+
+\end{document}

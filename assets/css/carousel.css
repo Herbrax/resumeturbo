@@ -1,0 +1,116 @@
+  .wrapper {
+    height: auto;
+    width: 100%;
+    padding:5%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  
+  .carousel {
+    position: relative;
+    width: 100%;
+    min-width:480px;
+    max-width: 500px;
+    border-radius: 8px;
+    }
+  
+  .carousel__item {
+    position: absolute;
+    width: 100%;
+    opacity : 0;
+    filter: drop-shadow(0 2px 2px #555);
+    will-change: transform, opacity;
+    animation: carousel-animate-vertical 27s linear infinite;
+  }
+  
+  .carousel__item img {
+    width: 100%; /* Full width of the carousel item */
+    max-height: 80vh; /* Adjust based on the viewport height */
+    object-fit: contain; /* Ensure the image is fully visible */
+  }
+  
+  .carousel__item:nth-child(1) {
+    animation-delay: -24s;
+  }
+  .carousel__item:nth-child(2) {
+    animation-delay: -21s;
+  }
+  .carousel__item:nth-child(3) {
+    animation-delay: -18s;
+  }
+  .carousel__item:nth-child(4) {
+    animation-delay: -15s;
+  }
+  .carousel__item:nth-child(5) {
+    animation-delay: -12s;
+  }
+  .carousel__item:nth-child(6) {
+    animation-delay: -9s;
+  }
+  .carousel__item:nth-child(7) {
+    animation-delay: -6s;
+  }
+  .carousel__item:nth-child(8) {
+    animation-delay: -3s;
+  }
+  .carousel__item:nth-child(9) {
+    animation-delay: 0s;
+  }
+  
+  .carousel__item-head {
+    border-radius: 50%;
+    background-color: #d7f7fc;
+    width: 90px;
+    height: 90px;
+    padding: 14px;
+    position: relative;
+    margin-right: -45px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+  }
+  
+  .carousel__item-body {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px 20px 16px 70px;
+  }
+  
+  .title {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  @keyframes carousel-animate-vertical {
+    0%, 100% {
+      transform: translateY(100%) scale(0.9);
+      opacity: 0;
+      visibility: hidden;
+    }
+    3%, 11.111111% {
+      transform: translateY(100%) scale(0.95);
+      opacity: 0.4;
+      visibility: visible;
+    }
+    14.111111%, 22.222222% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+    25.222222%, 33.333333% {
+      transform: translateY(-100%) scale(0.95);
+      opacity: 0.4;
+      visibility: visible;
+    }
+    36.333333% {
+      transform: translateY(-100%) scale(0.9);
+      opacity: 0;
+      visibility: visible;
+    }
+  }
+  

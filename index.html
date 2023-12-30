@@ -7,6 +7,7 @@
        <!-- <script type="module" src="./script.js"></script> -->
         <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0'>
         <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/carousel.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -20,6 +21,8 @@
                     <button id="startCvButton" class="primaryButton">Start CV</button>
                     <button id="resetIdButton" class="primaryButton" onclick="generateUserId()">reset ID</button>
                     <button id="exportLatexButton" class="primaryButton" onclick="downloadLatexFile()">Download LaTeX</button>
+
+                    
                     <div id="cvPopup" class="popupContainer">
                         <div class="popupContent">
                             <div id="userForm" class="userContainer" style="display:block">
@@ -130,8 +133,37 @@
                 </div>
             </div>
             <div class="right-panel">
-                <!-- TODO: Implement image carousel here -->
-                <div class="carousel-placeholder">Image carousel will go here</div>
+                <div class="wrapper" id="carousel">
+                    <div class="carousel">
+                        <div class="carousel__item">
+                            <img src="assets/img/1.png">
+                        </div>
+                        <div class="carousel__item">
+                            <img src="assets/img/2.png">
+                        </div>
+                        <div class="carousel__item">
+                            <img src="assets/img/3.png">
+                        </div>
+                        <div class="carousel__item">
+                            <img src="assets/img/1.png">
+                        </div>
+                        <div class="carousel__item">
+                            <img src="assets/img/2.png">
+                        </div>
+                        <div class="carousel__item">
+                            <img src="assets/img/3.png">
+                        </div>
+                        <div class="carousel__item">
+                            <img src="assets/img/1.png">
+                        </div>
+                        <div class="carousel__item">
+                            <img src="assets/img/2.png">
+                        </div>
+                        <div class="carousel__item">
+                            <img src="assets/img/3.png">
+                        </div>
+                    </div>
+                </div>
                 <iframe id="pdf-viewer"></iframe>
             </div>
         </div>

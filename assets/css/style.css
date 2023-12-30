@@ -573,3 +573,48 @@ html, body {
     width: 100vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
 }
+
+.settingsMenuTrigger {
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #4A7344; /* Adjust the background color as needed */
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 10px;
+    font-family: "Overpass";
+}
+
+.settingsMenu {
+    display: none;
+    position: absolute;
+    background-color: #d50f0f;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px;
+    border-radius: 8px;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    width: max-content; /* Ensure the dropdown width is based on content */
+}
+
+.settingsMenuTrigger:hover .settingsMenu {
+    display: block; /* Show the menu on hover */
+}
+
+.colorSection, .themeSection {
+    margin-bottom: 10px;
+}
+
+.colorOption, .themeOption {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: block; /* Ensure options are displayed as block */
+}
+
+.colorOption:hover, .themeOption:hover {
+    background-color: #CFE2CE;
+}
