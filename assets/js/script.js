@@ -1,6 +1,7 @@
 //********  Firebase imports, refs and config ********//
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getFirestore, getDoc, setDoc, doc} from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+import { downloadLatexFile } from '/assets/js/templates.js'; // Adjust the path as necessary
 
 
 
@@ -29,6 +30,7 @@ window.generateUserId = generateUserId;
 window.generateAdminId = generateAdminId;
 window.addChipFromInput = addChipFromInput
 window.clearAll = clearAll;
+window.downloadLatexFile = downloadLatexFile;
 
 function saveChanges() {
     generateResume();
@@ -337,7 +339,6 @@ function generateResume() {
   const workExperience = Array.from(document.querySelectorAll("#workExperienceContainer .dynamicEntry")).map(entry => {
       const row1 = entry.querySelectorAll(".fieldRow2")[0]; // First row of inputs
       const row2 = entry.querySelectorAll(".fieldRow2")[1]; // Second row of inputs
-      console.log(row2);
       return {
           position: row1.querySelectorAll("input")[0].value,  // Position from the first row
           company: row1.querySelectorAll("input")[1].value,   // Company from the first row
@@ -542,3 +543,6 @@ document.addEventListener('DOMContentLoaded', function () {
     lineColor: '#5cbdaa'
   });
 }, false);
+
+
+

@@ -17,10 +17,20 @@
         <div class="container">
             <div class="left-panel">
                 <div class="dashboardContent">
-                    <button onclick="compile()" id="compilebtn" disabled>Initializing</button>
+                    <button id="compilebtn" disabled>Initializing</button>
                     <button id="startCvButton" class="primaryButton">Start CV</button>
                     <button id="resetIdButton" class="primaryButton" onclick="generateUserId()">reset ID</button>
                     <button id="exportLatexButton" class="primaryButton" onclick="downloadLatexFile()">Download LaTeX</button>
+                    <div class="spinner-container" id="styleSpinner">
+                        <button class="primaryButton spinner-button-left">-</button>
+                        <div class="spinner-value">Style A</div>
+                        <button class="primaryButton spinner-button-right">+</button>
+                      </div>    
+                      <div class="spinner-container" id="colorSpinner">
+                        <button class="primaryButton spinner-button-left">-</button>
+                        <div class="spinner-value">Blue</div>
+                        <button class="primaryButton spinner-button-right">+</button>
+                      </div>                  
 
                     
                     <div id="cvPopup" class="popupContainer">
@@ -174,7 +184,9 @@
     <script src="XeTeXEngine.js"></script>
     <script src="DvipdfmxEngine.js"></script>
     <script type="module" src="assets/js/script.js"></script>
-    <script src="assets/js/SwiftLXImplementation.js"></script>
+    <script type="module" src="assets/js/SwiftLXImplementation.js"></script>
+    <script type="module" src="assets/js/templates.js"></script>
+    <script src="assets/js/themeChanger.js"></script>
     <script type='text/javascript' src='assets/js/particleground/particleground.js'></script>
     <script>
 
