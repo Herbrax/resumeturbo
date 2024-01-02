@@ -14,6 +14,113 @@
     </head>
     <body>
         <div class="backgroundParticles" id="particleground"></div>
+        <div id="cvPopup" class="popupContainer">
+            <div class="popupContent">
+                <div id="userForm" class="userContainer" style="display:block">
+                    <div class="userColumn">
+                        <div class="userSection">
+                            <div class="userSectionTitle">Personal Infos</div>
+                            <div class="gridFormContainer">
+                                <!-- Surname -->
+                                <div class="userFieldLabel">Surname:</div>
+                                <div class="userFieldBox">
+                                    <input id="surname" class="userTextInput" placeholder="Enter surname" />
+                                </div>
+
+                                <!-- Name -->
+                                <div class="userFieldLabel">Name:</div>
+                                <div class="userFieldBox">
+                                    <input id="name" class="userTextInput" placeholder="Enter name" />
+                                </div>
+
+                                <!-- Phone Number -->
+                                <div class="userFieldLabel">Phone Number:</div>
+                                <div class="userFieldBox">
+                                    <input id="phone" class="userTextInput" placeholder="Enter phone number" />
+                                </div>
+                                <!-- Email -->
+                                <div class="userFieldLabel">Email:</div>
+                                <div class="userFieldBox">
+                                    <input id="email" class="userTextInput" placeholder="Enter email" />
+                                </div>
+                                <!-- Address -->
+                                <div class="userFieldLabel">Address:</div>
+                                <div class="userFieldBox">
+                                    <input id="address" class="userTextInput" placeholder="Enter address" />
+                                </div>
+                                <!-- Location -->
+                                <div class="userFieldLabel">Location:</div>
+                                <div class="userFieldBox">
+                                    <input id="location" class="userTextInput" placeholder="Enter location" />
+                                </div>
+                            </div>
+                            <div class="gridLanguageContainer">
+                                <!-- Languages -->
+                                <div class="userFieldLabel">Languages:</div>
+                                <div class="userFieldBox">
+                                    <input id="newLanguage" class="userTextInput" placeholder="Enter a language" />
+                                    <div class="userAddPropertyButton" id="languageButton">
+                                        <i class="material-symbols-rounded">add</i>
+                                    </div>
+                                </div>
+                                <div id="languageChipContainer" class="commonNameChipContainer"></div>
+                            </div>                      
+                        </div>
+                        <!-- Social Links Section -->
+                        <div class="userSection">
+                            <div class="userSectionTitle">Social Links</div>
+                            <div class="fieldRow2">
+                                <div class="userFieldBox">
+                                    <input id="linkedin" class="userTextInput" placeholder="LinkedIn URL" />
+                                </div>
+                                <div class="userFieldBox">
+                                    <input id="github" class="userTextInput" placeholder="GitHub URL" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- About Description -->
+                        <div class="userSectionTitle">Description</div>
+                        <div class="userFieldBox">
+                            <textarea id="description" class="userTextArea" placeholder="Enter brief description"></textarea>
+                        </div>
+
+                        <!-- Resume Skills -->
+                        <div class="userSection">
+                            <div class="userSectionTitle">Resume Skills</div>
+                            <div id="resumeSkillsContainer"></div>
+                            <div class="userAddButton" onclick="manageResumeSkillsEntry()">Add Skill</div>
+                        </div>
+
+                        <!-- Education Section -->
+                        <div class="userSection">
+                            <div class="userSectionTitle">Education</div>
+                            <div id="educationContainer"></div>
+                            <div class="userAddButton" onclick="addEducationEntry()">Add Education</div>
+                        </div>
+
+                        <!-- Work Experience Section -->
+                        <div class="userSection">
+                            <div class="userSectionTitle">Work Experience</div>
+                            <div id="workExperienceContainer"></div>
+                            <div class="userAddButton" onclick="addWorkExperienceEntry()">Add Work Experience</div>
+                        </div>
+                        <!-- Projects Section -->
+                        <div class="userSection">
+                            <div class="userSectionTitle">Projects</div>
+                            <div id="projectContainer"></div>
+                            <div class="userAddButton" onclick="addProjectEntry()">Add Project</div>
+                        </div>
+                        <!-- Buttons -->
+                        <div style="display: flex; flex-direction: row; flex: 1; margin-top: 36px; gap: 12px; justify-content: center">
+                            <div class="secondaryButton" onclick="closePopup()">Cancel</div>
+                            <div class="secondaryButton" onclick="clearAll()">Clear All</div>
+                            <div class="primaryButton" onclick="saveChanges()">Save</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
         <div class="container">
             <div class="left-panel">
                 <div class="dashboardContent">
@@ -33,113 +140,7 @@
                       </div>                  
 
                     
-                    <div id="cvPopup" class="popupContainer">
-                        <div class="popupContent">
-                            <div id="userForm" class="userContainer" style="display:block">
-                                <div class="userColumn">
-                                    <div class="userSection">
-                                        <div class="userSectionTitle">Personal Infos</div>
-                                        <div class="gridFormContainer">
-                                            <!-- Surname -->
-                                            <div class="userFieldLabel">Surname:</div>
-                                            <div class="userFieldBox">
-                                                <input id="surname" class="userTextInput" placeholder="Enter surname" />
-                                            </div>
-        
-                                            <!-- Name -->
-                                            <div class="userFieldLabel">Name:</div>
-                                            <div class="userFieldBox">
-                                                <input id="name" class="userTextInput" placeholder="Enter name" />
-                                            </div>
-        
-                                            <!-- Phone Number -->
-                                            <div class="userFieldLabel">Phone Number:</div>
-                                            <div class="userFieldBox">
-                                                <input id="phone" class="userTextInput" placeholder="Enter phone number" />
-                                            </div>
-                                            <!-- Email -->
-                                            <div class="userFieldLabel">Email:</div>
-                                            <div class="userFieldBox">
-                                                <input id="email" class="userTextInput" placeholder="Enter email" />
-                                            </div>
-                                            <!-- Address -->
-                                            <div class="userFieldLabel">Address:</div>
-                                            <div class="userFieldBox">
-                                                <input id="address" class="userTextInput" placeholder="Enter address" />
-                                            </div>
-                                            <!-- Location -->
-                                            <div class="userFieldLabel">Location:</div>
-                                            <div class="userFieldBox">
-                                                <input id="location" class="userTextInput" placeholder="Enter location" />
-                                            </div>
-                                        </div>
-                                        <div class="gridLanguageContainer">
-                                            <!-- Languages -->
-                                            <div class="userFieldLabel">Languages:</div>
-                                            <div class="userFieldBox">
-                                                <input id="newLanguage" class="userTextInput" placeholder="Enter a language" />
-                                                <div class="userAddPropertyButton" id="languageButton">
-                                                    <i class="material-symbols-rounded">add</i>
-                                                </div>
-                                            </div>
-                                            <div id="languageChipContainer" class="commonNameChipContainer"></div>
-                                        </div>                      
-                                    </div>
-                                    <!-- Social Links Section -->
-                                    <div class="userSection">
-                                        <div class="userSectionTitle">Social Links</div>
-                                        <div class="fieldRow2">
-                                            <div class="userFieldBox">
-                                                <input id="linkedin" class="userTextInput" placeholder="LinkedIn URL" />
-                                            </div>
-                                            <div class="userFieldBox">
-                                                <input id="github" class="userTextInput" placeholder="GitHub URL" />
-                                            </div>
-                                        </div>
-                                    </div>
-        
-                                    <!-- About Description -->
-                                    <div class="userSectionTitle">Description</div>
-                                    <div class="userFieldBox">
-                                        <textarea id="description" class="userTextArea" placeholder="Enter brief description"></textarea>
-                                    </div>
-        
-                                    <!-- Resume Skills -->
-                                    <div class="userSection">
-                                        <div class="userSectionTitle">Resume Skills</div>
-                                        <div id="resumeSkillsContainer"></div>
-                                        <div class="userAddButton" onclick="manageResumeSkillsEntry()">Add Skill</div>
-                                    </div>
-        
-                                    <!-- Education Section -->
-                                    <div class="userSection">
-                                        <div class="userSectionTitle">Education</div>
-                                        <div id="educationContainer"></div>
-                                        <div class="userAddButton" onclick="addEducationEntry()">Add Education</div>
-                                    </div>
-        
-                                    <!-- Work Experience Section -->
-                                    <div class="userSection">
-                                        <div class="userSectionTitle">Work Experience</div>
-                                        <div id="workExperienceContainer"></div>
-                                        <div class="userAddButton" onclick="addWorkExperienceEntry()">Add Work Experience</div>
-                                    </div>
-                                    <!-- Projects Section -->
-                                    <div class="userSection">
-                                        <div class="userSectionTitle">Projects</div>
-                                        <div id="projectContainer"></div>
-                                        <div class="userAddButton" onclick="addProjectEntry()">Add Project</div>
-                                    </div>
-                                    <!-- Buttons -->
-                                    <div style="display: flex; flex-direction: row; flex: 1; margin-top: 36px; gap: 12px; justify-content: center">
-                                        <div class="secondaryButton" onclick="closePopup()">Cancel</div>
-                                        <div class="secondaryButton" onclick="clearAll()">Clear All</div>
-                                        <div class="primaryButton" onclick="saveChanges()">Save</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                    
+                
                 </div>
             </div>
             <div class="right-panel">
