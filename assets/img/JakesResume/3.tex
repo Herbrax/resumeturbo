@@ -1,0 +1,111 @@
+
+  \documentclass[letterpaper,11pt]{article}
+  \usepackage[empty]{fullpage}
+  \usepackage{titlesec}
+  \usepackage[usenames,dvipsnames]{color}
+  \usepackage{enumitem}
+  \usepackage[hidelinks]{hyperref}
+  \usepackage[english]{babel}
+  \usepackage{tabularx}
+  \addtolength{\oddsidemargin}{-0.5in}
+  \addtolength{\evensidemargin}{-0.5in}
+  \addtolength{\textwidth}{1in}
+  \addtolength{\topmargin}{-.5in}
+  \addtolength{\textheight}{1.0in}
+  \urlstyle{same}
+  \raggedbottom
+  \raggedright
+  \setlength{\tabcolsep}{0in}
+  \titleformat{\section}{
+    \vspace{-4pt}\scshape\raggedright\large
+  }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+  \newcommand{\resumeItem}[1]{
+    \item\small{
+      {#1 \vspace{-2pt}}
+    }
+  }
+  \newcommand{\resumeSubheading}[5]{
+    \vspace{-2pt}\item
+      \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{\small#3} & \textit{\small #4} \\
+      \end{tabular*}
+      {#5}\\}
+  \newcommand{\resumeSubheadingBis}[4]{
+    \vspace{-2pt}\item
+      \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{\small#3} & \textit{\small #4} \\
+      \end{tabular*}\vspace{-7pt}}
+  \newcommand{\resumeSubSubheading}[2]{
+      \item
+      \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \textit{\small#1} & \textit{\small #2} \
+      \end{tabular*}\vspace{-7pt}}
+  \newcommand{\resumeProjectHeading}[2]{
+      \item
+      \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \small#1 & #2 \
+      \end{tabular*}\vspace{-7pt}}
+  \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+  \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+  \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+  \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+  \newcommand{\resumeSkillsListStart}{\begin{itemize}[leftmargin=0.15in, label={}, noitemsep, topsep=0pt, partopsep=0pt]}
+  \newcommand{\resumeSkillsListEnd}{\end{itemize}}  
+  \newcommand{\resumeItemListStart}{\begin{itemize}}
+  \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+  \begin{document}
+  
+  \begin{center}
+  \textbf{\Huge \scshape Michael Lee} \\ \vspace{1pt}\small +1 (888) 123-4567 $|$ \href{mailto:michael.lee@email.com}{{michael.lee@email.com}} $|$ \href{https://linkedin.com/michaellee}{{https://linkedin.com/michaellee}}\end{center}
+    \section{About}
+    Experienced software developer with a strong background in full-stack development, especially in web technologies.
+Eager to apply my expertise in a challenging and innovative environment.
+    \section{Skills}
+    \resumeSkillsListStart
+        \item\textbf{Programming:} Python, JavaScript, Java, C\#\\
+\item\textbf{Web Development:} React, Angular, Node.js, Django\\
+\item\textbf{Databases:} MySQL, MongoDB, PostgreSQL\\
+\item\textbf{Tools:} Git, Docker, Jenkins, AWS
+    \resumeSubHeadingListEnd
+    \section{Education}
+    \resumeSubHeadingListStart
+          \resumeSubheading
+            {University of Ottawa}{}
+            {B.Sc. in Computer Science}{2016 - 2020}{Specialized in software development and web technologies.}
+          \resumeSubheading
+            {Gatineau College}{}
+            {Diploma in Full-Stack Web Development}{2019-2020}{Focused on modern web development frameworks and best practices.}
+    \resumeSubHeadingListEnd
+      \section{Experience}
+      \resumeSubHeadingListStart
+          \resumeSubheadingBis
+            {Data Analyst}{2020 - Present}
+            {InnovateX}{Ottawa, ON}{
+            \resumeItemListStart\resumeItem{Developed and maintained scalable web applications for various clients.}
+\resumeItem{Led a team in creating a highly successful e-commerce platform.}
+\resumeItem{Collaborated closely with UX/UI designers to implement user-friendly interfaces.}
+
+            \resumeItemListEnd}
+          \resumeSubheadingBis
+            {Junior Data Analyst}{2019 - 2020}
+            {WebTech Solutions}{Ottawa, ON}{
+            \resumeItemListStart\resumeItem{Assisted in the development of several web applications using React and Node.js.}
+\resumeItem{Participated in agile development cycles and code reviews.}
+\resumeItem{Implemented RESTful APIs and integrated third-party services.}
+
+            \resumeItemListEnd}
+      \resumeSubHeadingListEnd
+      \section{Projects}
+      \resumeSubHeadingListStart
+          \resumeProjectHeading
+            {\textbf{Social Media Analytics Tool}}{}\resumeItemListStart\resumeItem{Developed a tool for analyzing social media trends and user engagement.}
+\resumeItem{Utilized machine learning algorithms for sentiment analysis and data visualization.}
+\resumeItemListEnd
+          \resumeProjectHeading
+            {\textbf{Online Learning Platform}}{}\resumeItemListStart\resumeItem{Created an online learning platform with features for course management and student interaction.}
+\resumeItem{Implemented adaptive learning algorithms to personalize content for users.}
+\resumeItemListEnd
+      \resumeSubHeadingListEnd
+    \end{document}

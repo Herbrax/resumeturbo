@@ -310,8 +310,8 @@ function escapeLatexCharacters(str) {
         subHeaderColor = '673f67'; // Example sub header color for purple
         break;
       case 'green':
-          headerColor = '542a54'; // Example color code for purple
-          subHeaderColor = '673f67'; // Example sub header color for purple
+          headerColor = '324E2E'; // Example color code for purple
+          subHeaderColor = '4A7344'; // Example sub header color for purple
           break;
         case 'black':
           default:
@@ -387,8 +387,9 @@ function escapeLatexCharacters(str) {
       latexDocument += `\\textcolor{subHeaderColor}{{\\href{${socialLinks.github}}{\\raisebox{-0.05\\height}{\\faGithub}}} }\n`;
     }
     if (socialLinks.linkedin) {
-        latexDocument += `\\textcolor{subHeaderColor}{{\\href{${socialLinks.linkedin}}{\\raisebox{-0.05\\height}{\\faLinkedin}}} }\\\\\n`;
+        latexDocument += `\\textcolor{subHeaderColor}{{\\href{${socialLinks.linkedin}}{\\raisebox{-0.05\\height}{\\faLinkedin}}} }\n`;
     }
+    latexDocument += '\\\\'
     latexDocument += `\\textcolor{subHeaderColor}{\\raisebox{-0.05\\height}{\\faMapMarker} ${personalInfo.contact.address} }\n`;
     if (personalInfo.contact.email) {
         latexDocument += `\\textcolor{subHeaderColor}{{\\href{mailto:${personalInfo.contact.email}}{\\raisebox{-0.05\\height}{\\faEnvelope} ${personalInfo.contact.email}}} }\n`;

@@ -1,0 +1,102 @@
+\documentclass[a4paper,8pt]{article}
+  \usepackage{parskip}
+  \usepackage{hologo}
+  \usepackage{fontspec}
+  \RequirePackage{color}
+  \RequirePackage{graphicx}
+  \usepackage[usenames,dvipsnames]{xcolor}
+  \usepackage[scale=0.9, top=.4in, bottom=.4in]{geometry}
+  \usepackage{tabularx}
+  \usepackage{enumitem}
+  \newcolumntype{C}{>{\centering\arraybackslash}X}
+  \usepackage{supertabular}
+  \usepackage{tabularx}
+  \newlength{\fullcollw}
+  \setlength{\fullcollw}{0.42\textwidth}
+  \usepackage{titlesec}
+  \usepackage{multicol}
+  \usepackage{multirow}
+  \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+  \titlespacing{\section}{1pt}{2pt}{2pt}
+  \usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+  \usepackage[unicode, draft=false]{hyperref}
+  \usepackage{fontawesome5}
+  \usepackage[normalem]{ulem}
+  \setmainfont{TeX Gyre Heros}
+  \setlist[itemize]{label={-}, itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt, leftmargin=1em}
+
+  
+  % Define colors based on input
+  \definecolor{headerColor}{HTML}{324E2E}
+  \definecolor{subHeaderColor}{HTML}{4A7344}
+  
+  % commands for entries
+  \newcommand{\entryItems}[4]{
+    \noindent\textbf{\color{headerColor}#1}\hfill\textbf{\color{subHeaderColor}#2}
+    \ifx&#3&\else\\\noindent\textit{\color{subHeaderColor}#3}\fi
+      #4
+    \vspace{5pt} % Adjust vertical space after each entry
+  }
+  \newcommand{\entry}[4]{
+    \noindent\textbf{\color{headerColor}#1}\hfill\textbf{\color{subHeaderColor}#2}
+    \ifx&#3&\else\\\noindent\textit{\color{subHeaderColor}#3}\fi
+      \\#4
+    \vspace{5pt} % Adjust vertical space after each entry
+  }
+  \begin{document}
+  \pagestyle{empty}
+  
+  \begin{tabularx}{\linewidth}{@{} C @{}}
+  
+  \color{headerColor} \Huge{Alex Taylor} \\[6pt]\\
+  \textcolor{subHeaderColor}{\raisebox{-0.05\height}{\faLanguage} English, Spanish }
+\textcolor{subHeaderColor}{\raisebox{-0.05\height}{\faMobile} +1 (604) 123-4567 }
+\\\textcolor{subHeaderColor}{\raisebox{-0.05\height}{\faMapMarker} 12345 Folks Avenue, V7B 7X7, Vancouver, BC, Canada          }
+\textcolor{subHeaderColor}{{\href{mailto:alex.taylor@email.com}{\raisebox{-0.05\height}{\faEnvelope} alex.taylor@email.com}} }
+\end{tabularx}
+\color{headerColor}\section{About}\vspace{1ex}\color{black}{Enthusiastic and innovative software engineer with a passion for developing user-centric applications and a knack for problem-solving. Seeking challenging opportunities to apply my skills in a dynamic team environment. }\color{headerColor}\section{Skills}
+\vspace{1ex}
+  \color{headerColor}\textbf{Programming:} \color{black} Python, Java, JavaScript, React, Node.js
+\\
+  \color{headerColor}\textbf{Data:} \color{black} SQL, NoSQL, Firebase, Pandas, Numpy
+\\
+  \color{headerColor}\textbf{Miscellaneous:} \color{black} Git, Docker, Kubernetes, Agile, Scrum
+
+  \color{headerColor}\section{Education}
+\vspace{1ex}
+  \entry{University of British Columbia}
+      {2019 - 2023}
+      {B.Sc. in Software Engineering}
+      {\textcolor{black}{Focused on web and mobile applications development; expected graduation in May 2023.}}
+
+  \color{headerColor}\section{Work Experience}
+\vspace{1ex}\entryItems{Innovate Tech}{2022 - Present}{Software Developer Intern}{\textcolor{black}{{
+      \begin{itemize}
+        \item Developed and optimized web applications, improving user experience and performance.
+\item Collaborated with cross-functional teams to define, design, and ship new features.
+\item Assisted in the integration of back-end services with JavaScript-based front ends
+      \end{itemize}
+    }}}
+\entryItems{Creative Solutions}{2021 - 2022}{Junior Web Developer}{\textcolor{black}{{
+      \begin{itemize}
+        \item Contributed to several high-profile client projects, focusing on frontend technologies.
+\item Implemented responsive web design principles to ensure websites render well across multiple devices.
+\item Participated in code reviews and collaborated with senior developers to enhance code quality.
+\item 
+      \end{itemize}
+    }}}
+\color{headerColor}\section{Projects}
+\vspace{1ex}\entryItems{E-Commerce Website}{}{}{\textcolor{black}{{
+      \begin{itemize}
+        \item Developed a full-stack e-commerce website using React and Node.js.
+\item Implemented features like product listing, a shopping cart, and secure checkout.
+      \end{itemize}
+    }}}
+\entryItems{Mobile Fitness App}{}{}{\textcolor{black}{{
+      \begin{itemize}
+        \item Created a fitness tracking app with personalized workout and diet plans.
+\item Utilized Firebase for user authentication and data storage.
+      \end{itemize}
+    }}}
+
+  \end{document}

@@ -1,0 +1,98 @@
+\documentclass[11pt,a4paper,roman]{moderncv}
+  \moderncvstyle{banking}
+  \moderncvcolor{blue}
+  \nopagenumbers{}
+  \usepackage[scale=0.9]{geometry}
+  \usepackage{color}
+  \newcommand*{\customcventry}[7][.25em]{
+  \begin{tabular}{@{}l} 
+    {\bfseries #4}
+  \end{tabular}
+  \hfill
+  \begin{tabular}{l@{}}
+    {\bfseries #5}
+  \end{tabular}\\
+  \begin{tabular}{@{}l} 
+    {\itshape #3}
+  \end{tabular}
+  \hfill
+  \begin{tabular}{l@{}}
+    {\itshape #2}
+  \end{tabular}
+  \ifx&#7&
+  \else{
+    \begin{minipage}{\maincolumnwidth}
+      \footnotesize #7
+    \end{minipage}}\fi
+  \par\addvspace{#1}
+  }
+  \newcommand*{\customcvproject}[4][.25em]{
+  \begin{tabular}{@{}l} 
+    {\small\bfseries #2} 
+  \end{tabular}
+  \hfill
+  \begin{tabular}{l@{}}
+    {\footnotesize\itshape #3}
+  \end{tabular}
+  \ifx&#4&
+  \else{\
+    \begin{minipage}{\maincolumnwidth}%
+      \footnotesize #4
+    \end{minipage}}\fi
+  \par\addvspace{#1}
+  }
+  \setlength{\tabcolsep}{12pt}
+  
+  \name{Michael}{Lee}
+  \address{1987 Fellas Road, K1R 1R1, Ottawa, ON, Canada         }
+  \begin{document}
+  \makecvtitle
+  \vspace*{-23mm}
+  
+  \begin{center}
+  \begin{tabular}{ c c c c }\faLanguage\enspace English, French& \faEnvelopeO\enspace michael.lee@email.com& \href{https://linkedin.com/michaellee}{\faLinkedinSquare} & \faMobile\enspace +1 (888) 123-4567 \\
+  \end{tabular}
+  \end{center}
+  
+  \section{ABOUT}
+  Experienced software developer with a strong background in full-stack development, especially in web technologies.
+Eager to apply my expertise in a challenging and innovative environment.
+  \section{SKILLS}
+\textbf{Programming:} Python, JavaScript, Java, C\#\\
+\textbf{Web Development:} React, Angular, Node.js, Django\\
+\textbf{Databases:} MySQL, MongoDB, PostgreSQL\\
+\textbf{Tools:} Git, Docker, Jenkins, AWS
+\section{EDUCATION}
+\customcventry{2016 - 2020}{B.Sc. in Computer Science}{University of Ottawa}{}{}{Specialized in software development and web technologies.}
+\customcventry{2019-2020}{Diploma in Full-Stack Web Development}{Gatineau College}{}{}{Focused on modern web development frameworks and best practices.}
+\section{WORK EXPERIENCE}
+\customcventry{2020 - Present}{Data Analyst}{InnovateX}{Ottawa, ON}{}{{
+      \begin{itemize}
+        \item Developed and maintained scalable web applications for various clients.
+\item Led a team in creating a highly successful e-commerce platform.
+\item Collaborated closely with UX/UI designers to implement user-friendly interfaces.
+      \end{itemize}
+    }}
+\customcventry{2019 - 2020}{Junior Data Analyst}{WebTech Solutions}{Ottawa, ON}{}{{
+      \begin{itemize}
+        \item Assisted in the development of several web applications using React and Node.js.
+\item Participated in agile development cycles and code reviews.
+\item Implemented RESTful APIs and integrated third-party services.
+      \end{itemize}
+    }}
+\section{PROJECTS}
+\customcvproject{Social Media Analytics Tool}{}{{
+      \begin{itemize}
+        \item Developed a tool for analyzing social media trends and user engagement.
+\item Utilized machine learning algorithms for sentiment analysis and data visualization.
+      \end{itemize}
+    }}
+\customcvproject{Online Learning Platform}{}{{
+      \begin{itemize}
+        \item Created an online learning platform with features for course management and student interaction.
+\item Implemented adaptive learning algorithms to personalize content for users.
+      \end{itemize}
+    }}
+
+  \end{document}
+  

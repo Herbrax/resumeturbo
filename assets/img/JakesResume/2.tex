@@ -1,0 +1,110 @@
+
+  \documentclass[letterpaper,11pt]{article}
+  \usepackage[empty]{fullpage}
+  \usepackage{titlesec}
+  \usepackage[usenames,dvipsnames]{color}
+  \usepackage{enumitem}
+  \usepackage[hidelinks]{hyperref}
+  \usepackage[english]{babel}
+  \usepackage{tabularx}
+  \addtolength{\oddsidemargin}{-0.5in}
+  \addtolength{\evensidemargin}{-0.5in}
+  \addtolength{\textwidth}{1in}
+  \addtolength{\topmargin}{-.5in}
+  \addtolength{\textheight}{1.0in}
+  \urlstyle{same}
+  \raggedbottom
+  \raggedright
+  \setlength{\tabcolsep}{0in}
+  \titleformat{\section}{
+    \vspace{-4pt}\scshape\raggedright\large
+  }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+  \newcommand{\resumeItem}[1]{
+    \item\small{
+      {#1 \vspace{-2pt}}
+    }
+  }
+  \newcommand{\resumeSubheading}[5]{
+    \vspace{-2pt}\item
+      \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{\small#3} & \textit{\small #4} \\
+      \end{tabular*}
+      {#5}\\}
+  \newcommand{\resumeSubheadingBis}[4]{
+    \vspace{-2pt}\item
+      \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{\small#3} & \textit{\small #4} \\
+      \end{tabular*}\vspace{-7pt}}
+  \newcommand{\resumeSubSubheading}[2]{
+      \item
+      \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \textit{\small#1} & \textit{\small #2} \
+      \end{tabular*}\vspace{-7pt}}
+  \newcommand{\resumeProjectHeading}[2]{
+      \item
+      \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \small#1 & #2 \
+      \end{tabular*}\vspace{-7pt}}
+  \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+  \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+  \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+  \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+  \newcommand{\resumeSkillsListStart}{\begin{itemize}[leftmargin=0.15in, label={}, noitemsep, topsep=0pt, partopsep=0pt]}
+  \newcommand{\resumeSkillsListEnd}{\end{itemize}}  
+  \newcommand{\resumeItemListStart}{\begin{itemize}}
+  \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+  \begin{document}
+  
+  \begin{center}
+  \textbf{\Huge \scshape Emily Chen} \\ \vspace{1pt}\small +1 (555) 123-4567 $|$ \href{mailto:emily.chen@email.com}{{emily.chen@email.com}} $|$ \href{https://github.com/emilychen}{{https://github.com/emilychen}}\end{center}
+    \section{About}
+    As a data analyst with a strong background in statistical modeling and data visualization, I am seeking opportunities to leverage my skills in data-driven decision making and insights generation.
+    \section{Skills}
+    \resumeSkillsListStart
+        \item\textbf{Programming:} Python, R, SQL, Julia\\
+\item\textbf{Data:} Machine Learning, Data Visualization, Big Data\\
+\item\textbf{Tools:} Tableau, Power BI, Excel, Jupyter\\
+\item\textbf{Miscellaneous:} Git, Data Mining, Predictive Modeling, Agile
+    \resumeSubHeadingListEnd
+    \section{Education}
+    \resumeSubHeadingListStart
+          \resumeSubheading
+            {University of Toronto}{}
+            {B.Sc. in Data Science}{2018 - 2022}{Graduated with honors, focusing on statistical methods and data analysis.}
+          \resumeSubheading
+            {Humber College}{}
+            {Diploma in Big Data Analytics}{2020-2021}{Concentrated on big data technologies and applications.}
+    \resumeSubHeadingListEnd
+      \section{Experience}
+      \resumeSubHeadingListStart
+          \resumeSubheadingBis
+            {Data Analyst}{2022 - Present}
+            {Insight Data Corp}{Toronto, ON}{
+            \resumeItemListStart\resumeItem{Analyzed large datasets to identify trends and insights that informed business decisions.}
+\resumeItem{Developed and automated reporting processes using Python and SQL.}
+\resumeItem{Collaborated with cross-functional teams to understand data needs and deliver comprehensive analyses.}
+
+            \resumeItemListEnd}
+          \resumeSubheadingBis
+            {Junior Data Analyst}{2021 - 2022}
+            {Market Trends Inc}{Toronto, ON}{
+            \resumeItemListStart\resumeItem{Assisted in the development of data models and algorithms to predict market trends.}
+\resumeItem{Utilized data visualization tools to present insights to stakeholders.}
+\resumeItem{Contributed to the improvement of data collection and analysis processes.}
+
+            \resumeItemListEnd}
+      \resumeSubHeadingListEnd
+      \section{Projects}
+      \resumeSubHeadingListStart
+          \resumeProjectHeading
+            {\textbf{Sales Data Analysis}}{}\resumeItemListStart\resumeItem{Analyzed sales data to identify patterns and provide actionable insights for marketing strategy adjustments.}
+\resumeItem{Employed statistical analysis techniques and machine learning models.}
+\resumeItemListEnd
+          \resumeProjectHeading
+            {\textbf{Customer Segmentation Study }}{}\resumeItemListStart\resumeItem{Conducted a comprehensive customer segmentation analysis for a retail company.}
+\resumeItem{Implemented clustering algorithms to categorize customer groups based on purchasing behavior.}
+\resumeItemListEnd
+      \resumeSubHeadingListEnd
+    \end{document}

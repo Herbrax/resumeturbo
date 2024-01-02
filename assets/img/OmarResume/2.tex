@@ -1,0 +1,111 @@
+\documentclass[a4paper,8pt]{article}
+  \usepackage{parskip}
+  \usepackage{hologo}
+  \usepackage{fontspec}
+  \RequirePackage{color}
+  \RequirePackage{graphicx}
+  \usepackage[usenames,dvipsnames]{xcolor}
+  \usepackage[scale=0.9, top=.4in, bottom=.4in]{geometry}
+  \usepackage{tabularx}
+  \usepackage{enumitem}
+  \newcolumntype{C}{>{\centering\arraybackslash}X}
+  \usepackage{supertabular}
+  \usepackage{tabularx}
+  \newlength{\fullcollw}
+  \setlength{\fullcollw}{0.42\textwidth}
+  \usepackage{titlesec}
+  \usepackage{multicol}
+  \usepackage{multirow}
+  \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+  \titlespacing{\section}{1pt}{2pt}{2pt}
+  \usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+  \usepackage[unicode, draft=false]{hyperref}
+  \usepackage{fontawesome5}
+  \usepackage[normalem]{ulem}
+  \setmainfont{TeX Gyre Heros}
+  \setlist[itemize]{label={-}, itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt, leftmargin=1em}
+
+  
+  % Define colors based on input
+  \definecolor{headerColor}{HTML}{400305}
+  \definecolor{subHeaderColor}{HTML}{831014}
+  
+  % commands for entries
+  \newcommand{\entryItems}[4]{
+    \noindent\textbf{\color{headerColor}#1}\hfill\textbf{\color{subHeaderColor}#2}
+    \ifx&#3&\else\\\noindent\textit{\color{subHeaderColor}#3}\fi
+      #4
+    \vspace{5pt} % Adjust vertical space after each entry
+  }
+  \newcommand{\entry}[4]{
+    \noindent\textbf{\color{headerColor}#1}\hfill\textbf{\color{subHeaderColor}#2}
+    \ifx&#3&\else\\\noindent\textit{\color{subHeaderColor}#3}\fi
+      \\#4
+    \vspace{5pt} % Adjust vertical space after each entry
+  }
+  \begin{document}
+  \pagestyle{empty}
+  
+  \begin{tabularx}{\linewidth}{@{} C @{}}
+  
+  \color{headerColor} \Huge{Emily Chen} \\[6pt]\\
+  \textcolor{subHeaderColor}{\raisebox{-0.05\height}{\faLanguage} English, Mandarin }
+\textcolor{subHeaderColor}{\raisebox{-0.05\height}{\faMobile} +1 (555) 123-4567 }
+\textcolor{subHeaderColor}{{\href{https://github.com/emilychen}{\raisebox{-0.05\height}{\faGithub}}} }
+\\\textcolor{subHeaderColor}{\raisebox{-0.05\height}{\faMapMarker} 2564 Brothers Avenue, M5O 5K5, Toronto, ON, Canada          }
+\textcolor{subHeaderColor}{{\href{mailto:emily.chen@email.com}{\raisebox{-0.05\height}{\faEnvelope} emily.chen@email.com}} }
+\end{tabularx}
+\color{headerColor}\section{About}\vspace{1ex}\color{black}{As a data analyst with a strong background in statistical modeling and data visualization, I am seeking opportunities to leverage my skills in data-driven decision making and insights generation.}\color{headerColor}\section{Skills}
+\vspace{1ex}
+  \color{headerColor}\textbf{Programming:} \color{black} Python, R, SQL, Julia
+\\
+  \color{headerColor}\textbf{Data:} \color{black} Machine Learning, Data Visualization, Big Data
+\\
+  \color{headerColor}\textbf{Tools:} \color{black} Tableau, Power BI, Excel, Jupyter
+\\
+  \color{headerColor}\textbf{Miscellaneous:} \color{black} Git, Data Mining, Predictive Modeling, Agile
+
+  \color{headerColor}\section{Education}
+\vspace{1ex}
+  \entry{University of Toronto}
+      {2018 - 2022}
+      {B.Sc. in Data Science}
+      {\textcolor{black}{Graduated with honors, focusing on statistical methods and data analysis.}}
+
+  \entry{Humber College}
+      {2020-2021}
+      {Diploma in Big Data Analytics}
+      {\textcolor{black}{Concentrated on big data technologies and applications.}}
+
+  \color{headerColor}\section{Work Experience}
+\vspace{1ex}\entryItems{Insight Data Corp}{2022 - Present}{Data Analyst}{\textcolor{black}{{
+      \begin{itemize}
+        \item Analyzed large datasets to identify trends and insights that informed business decisions.
+\item Developed and automated reporting processes using Python and SQL.
+\item Collaborated with cross-functional teams to understand data needs and deliver comprehensive analyses.
+      \end{itemize}
+    }}}
+\entryItems{Market Trends Inc}{2021 - 2022}{Junior Data Analyst}{\textcolor{black}{{
+      \begin{itemize}
+        \item Assisted in the development of data models and algorithms to predict market trends.
+\item Utilized data visualization tools to present insights to stakeholders.
+\item Contributed to the improvement of data collection and analysis processes.
+\item 
+      \end{itemize}
+    }}}
+\color{headerColor}\section{Projects}
+\vspace{1ex}\entryItems{Sales Data Analysis}{}{}{\textcolor{black}{{
+      \begin{itemize}
+        \item Analyzed sales data to identify patterns and provide actionable insights for marketing strategy adjustments.
+\item Employed statistical analysis techniques and machine learning models.
+\item 
+      \end{itemize}
+    }}}
+\entryItems{Customer Segmentation Study }{}{}{\textcolor{black}{{
+      \begin{itemize}
+        \item Conducted a comprehensive customer segmentation analysis for a retail company.
+\item Implemented clustering algorithms to categorize customer groups based on purchasing behavior.
+      \end{itemize}
+    }}}
+
+  \end{document}

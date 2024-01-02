@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
     colorSpinnerContainer.addEventListener('click', updateThemeColors);
     // Update theme colors on initial load
     updateThemeColors();
+    updateCarouselImages(valueContainerStyle.textContent);
 
     /////////////////////
     
@@ -95,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
         rightButtonColor.disabled = false;
       }
       updateThemeColors();
+      updateCarouselImages(valueContainerStyle.textContent);
     }
 
     // Function to change the color in a given direction
@@ -113,4 +115,29 @@ document.addEventListener('DOMContentLoaded', function () {
   
     leftButtonColor.addEventListener('click', function() { changeColor('prev'); });
     rightButtonColor.addEventListener('click', function() { changeColor('next'); });
-  });
+
+    function updateCarouselImages(style) {
+        let folderName;
+        switch (style) {
+            case 'Style A':
+                folderName = 'ModernResume';
+                break;
+            case 'Style B':
+                folderName = 'OmarResume';
+                break;
+            case 'Style C':
+                folderName = 'JakesResume';
+                break;
+        }
+    
+        const carousel = document.querySelector('.carousel');
+        let newCarouselContent = '';
+    
+        for (let i = 0; i < 9; i++) {
+            let imageNumber = (i % 3) + 1;
+            newCarouselContent += `<div class="carousel__item"><img src="assets/img/${folderName}/${imageNumber}.png"></div>`;
+        }
+    
+        carousel.innerHTML = newCarouselContent;
+    }
+});

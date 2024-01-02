@@ -1,0 +1,106 @@
+
+  \documentclass[letterpaper,11pt]{article}
+  \usepackage[empty]{fullpage}
+  \usepackage{titlesec}
+  \usepackage[usenames,dvipsnames]{color}
+  \usepackage{enumitem}
+  \usepackage[hidelinks]{hyperref}
+  \usepackage[english]{babel}
+  \usepackage{tabularx}
+  \addtolength{\oddsidemargin}{-0.5in}
+  \addtolength{\evensidemargin}{-0.5in}
+  \addtolength{\textwidth}{1in}
+  \addtolength{\topmargin}{-.5in}
+  \addtolength{\textheight}{1.0in}
+  \urlstyle{same}
+  \raggedbottom
+  \raggedright
+  \setlength{\tabcolsep}{0in}
+  \titleformat{\section}{
+    \vspace{-4pt}\scshape\raggedright\large
+  }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+  \newcommand{\resumeItem}[1]{
+    \item\small{
+      {#1 \vspace{-2pt}}
+    }
+  }
+  \newcommand{\resumeSubheading}[5]{
+    \vspace{-2pt}\item
+      \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{\small#3} & \textit{\small #4} \\
+      \end{tabular*}
+      {#5}\\}
+  \newcommand{\resumeSubheadingBis}[4]{
+    \vspace{-2pt}\item
+      \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{\small#3} & \textit{\small #4} \\
+      \end{tabular*}\vspace{-7pt}}
+  \newcommand{\resumeSubSubheading}[2]{
+      \item
+      \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \textit{\small#1} & \textit{\small #2} \
+      \end{tabular*}\vspace{-7pt}}
+  \newcommand{\resumeProjectHeading}[2]{
+      \item
+      \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \small#1 & #2 \
+      \end{tabular*}\vspace{-7pt}}
+  \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+  \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+  \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+  \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+  \newcommand{\resumeSkillsListStart}{\begin{itemize}[leftmargin=0.15in, label={}, noitemsep, topsep=0pt, partopsep=0pt]}
+  \newcommand{\resumeSkillsListEnd}{\end{itemize}}  
+  \newcommand{\resumeItemListStart}{\begin{itemize}}
+  \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+  \begin{document}
+  
+  \begin{center}
+  \textbf{\Huge \scshape Alex Taylor} \\ \vspace{1pt}\small +1 (604) 123-4567 $|$ \href{mailto:alex.taylor@email.com}{{alex.taylor@email.com}}\end{center}
+    \section{About}
+    Enthusiastic and innovative software engineer with a passion for developing user-centric applications and a knack for problem-solving. Seeking challenging opportunities to apply my skills in a dynamic team environment. 
+    \section{Skills}
+    \resumeSkillsListStart
+        \item\textbf{Programming:} Python, Java, JavaScript, React, Node.js\\
+\item\textbf{Data:} SQL, NoSQL, Firebase, Pandas, Numpy\\
+\item\textbf{Miscellaneous:} Git, Docker, Kubernetes, Agile, Scrum
+    \resumeSubHeadingListEnd
+    \section{Education}
+    \resumeSubHeadingListStart
+          \resumeSubheading
+            {University of British Columbia}{}
+            {B.Sc. in Software Engineering}{2019 - 2023}{Focused on web and mobile applications development; expected graduation in May 2023.}
+    \resumeSubHeadingListEnd
+      \section{Experience}
+      \resumeSubHeadingListStart
+          \resumeSubheadingBis
+            {Software Developer Intern}{2022 - Present}
+            {Innovate Tech}{Vancouver, BC}{
+            \resumeItemListStart\resumeItem{Developed and optimized web applications, improving user experience and performance.}
+\resumeItem{Collaborated with cross-functional teams to define, design, and ship new features.}
+\resumeItem{Assisted in the integration of back-end services with JavaScript-based front ends}
+
+            \resumeItemListEnd}
+          \resumeSubheadingBis
+            {Junior Web Developer}{2021 - 2022}
+            {Creative Solutions}{Vancouver, BC}{
+            \resumeItemListStart\resumeItem{Contributed to several high-profile client projects, focusing on frontend technologies.}
+\resumeItem{Implemented responsive web design principles to ensure websites render well across multiple devices.}
+\resumeItem{Participated in code reviews and collaborated with senior developers to enhance code quality.}
+
+            \resumeItemListEnd}
+      \resumeSubHeadingListEnd
+      \section{Projects}
+      \resumeSubHeadingListStart
+          \resumeProjectHeading
+            {\textbf{E-Commerce Website}}{}\resumeItemListStart\resumeItem{Developed a full-stack e-commerce website using React and Node.js.}
+\resumeItem{Implemented features like product listing, a shopping cart, and secure checkout.}
+\resumeItemListEnd
+          \resumeProjectHeading
+            {\textbf{Mobile Fitness App}}{}\resumeItemListStart\resumeItem{Created a fitness tracking app with personalized workout and diet plans.}
+\resumeItem{Utilized Firebase for user authentication and data storage.}
+\resumeItemListEnd
+      \resumeSubHeadingListEnd
+    \end{document}
