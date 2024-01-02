@@ -44,6 +44,15 @@ document.addEventListener('DOMContentLoaded', function () {
           root.style.setProperty('--linearGradient1', '#4d004d'); 
           root.style.setProperty('--linearGradient2', '#b300b3'); 
           break;
+          case 'Green':
+            // Set variables for Purple theme
+            root.style.setProperty('--primaryButtonColor', '#324E2E');
+            root.style.setProperty('--secondaryButtonColor', '#F1F1F1');
+            root.style.setProperty('--primaryButtonHoverColor', '#4A7344');
+            root.style.setProperty('--secondaryButtonHoverColor', '#CFE2CE');
+            root.style.setProperty('--linearGradient1', '#006400'); 
+            root.style.setProperty('--linearGradient2', '#60c060'); 
+            break;
         case 'Black':
             root.style.setProperty('--primaryButtonColor', '#515151');
             root.style.setProperty('--secondaryButtonColor', '#F1F1F1'); 
@@ -64,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Arrays of styles and colors to cycle through
     const styles = ['Style A', 'Style B', 'Style C'];
-    const colors = ['Blue', 'Red', 'Purple', 'Black'];
-    
+    const colors = ['Blue', 'Red', 'Purple', 'Green', 'Black'];
     // Function to change the style in a given direction
     function changeStyle(direction) {
       let currentStyleIndex = styles.indexOf(valueContainerStyle.textContent);
@@ -75,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
         currentStyleIndex = (currentStyleIndex - 1 + styles.length) % styles.length;
       }
       valueContainerStyle.textContent = styles[currentStyleIndex];
-  
       // Check if the selected style is 'Style C'
       if (valueContainerStyle.textContent === 'Style C') {
         // Set color to Black and disable color spinner buttons
@@ -89,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       updateThemeColors();
     }
-  
+
     // Function to change the color in a given direction
     function changeColor(direction) {
       let currentColorIndex = colors.indexOf(valueContainerColor.textContent);
@@ -100,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       valueContainerColor.textContent = colors[currentColorIndex];
     }
-    
     // Event listeners for the buttons
     leftButtonStyle.addEventListener('click', function() { changeStyle('prev'); });
     rightButtonStyle.addEventListener('click', function() { changeStyle('next'); });

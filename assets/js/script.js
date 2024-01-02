@@ -3,8 +3,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebas
 import { getFirestore, getDoc, setDoc, doc} from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
 import { downloadLatexFile } from '/assets/js/templates.js'; // Adjust the path as necessary
 
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyD5JD6v_R14vchD1TgfgSBKlNDE0PYPDoE",
   authDomain: "cvgen-906e8.firebaseapp.com",
@@ -83,7 +81,6 @@ function deleteChip(element) {
   } catch {} 
 }
 
-
 function initLanguageInput() {
   const languageInputId = 'newLanguage'; // The ID of your language input field
   const languageContainerId = 'languageChipContainer'; // The ID of the container where chips are added
@@ -130,7 +127,6 @@ function initSkillInputListener() {
       }
   });
 }
-
 
 function manageResumeSkillsEntry(skillsData = null) {
   const container = document.getElementById('resumeSkillsContainer');

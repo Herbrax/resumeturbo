@@ -3,6 +3,7 @@ import { exportLatex } from './templates.js'; // Adjust the path as necessary
 const compileBtn = document.getElementById("compilebtn");
 const globalEn = new XeTeXEngine();
 const dvipdfmxEn = new DvipdfmxEngine();
+let lastCompiledStyle = null; // Global variable to track the last compiled style
 
     async function init() {
     await globalEn.loadEngine();
@@ -17,11 +18,19 @@ const dvipdfmxEn = new DvipdfmxEngine();
         console.log("Engine not ready yet");
         return;
     }
+    const currentStyle = document.querySelector(".spinner-value").textContent;
+    if (lastCompiledStyle === "Style B" && currentStyle !== "Style B") {
+      // Because the style B don't work at all 
+      await globalEn.closeWorker();
+      await globalEn.loadEngine(); // Assuming there's a method to reload the engine
+    }
+
     compileBtn.disabled = true;
     compileBtn.innerHTML = "Compiling...";
     compileBtn.className = "secondaryButton";
     const latexSource =  exportLatex();
     console.log(latexSource); // Log the LaTeX document
+    lastCompiledStyle = currentStyle;
     globalEn.writeMemFSFile("main.tex", latexSource);
     globalEn.setEngineMainFile("main.tex");
     let r = await globalEn.compileLaTeX();

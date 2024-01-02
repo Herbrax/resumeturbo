@@ -298,17 +298,21 @@ function escapeLatexCharacters(str) {
     // Determine colors based on input
     switch(color) {
       case 'blue':
-        headerColor = '1C033C'; // Example color code for blue
-        subHeaderColor = '371e77'; // Example sub header color for blue
+        headerColor = '19426e'; // Example color code for blue
+        subHeaderColor = '00008b'; // Example sub header color for blue
         break;
       case 'red':
-        headerColor = 'FF0000'; // Example color code for red
-        subHeaderColor = '8B0000'; // Example sub header color for red
+        headerColor = '400305'; // Example color code for red
+        subHeaderColor = '831014'; // Example sub header color for red
         break;
       case 'purple':
-        headerColor = '800080'; // Example color code for purple
-        subHeaderColor = '9370DB'; // Example sub header color for purple
+        headerColor = '542a54'; // Example color code for purple
+        subHeaderColor = '673f67'; // Example sub header color for purple
         break;
+      case 'green':
+          headerColor = '542a54'; // Example color code for purple
+          subHeaderColor = '673f67'; // Example sub header color for purple
+          break;
         case 'black':
           default:
             // Default and black color
@@ -342,7 +346,7 @@ function escapeLatexCharacters(str) {
   \\usepackage{fontawesome5}
   \\usepackage[normalem]{ulem}
   \\setmainfont{TeX Gyre Heros}
-  \\setlist[itemize]{label={-}, itemsep=0pt, parsep=0pt, leftmargin=1em}
+  \\setlist[itemize]{label={-}, itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt, leftmargin=1em}
 
   
   % Define colors based on input
@@ -438,7 +442,7 @@ function escapeLatexCharacters(str) {
           latexDocument += `\n`;
         } else {
           // Multiline description
-          latexDocument += `\\entryItems{${exp.company}}{${exp.years}}{${exp.position}}{${formatDetailsAsItemList(exp.details)}}\n`;
+          latexDocument += `\\entryItems{${exp.company}}{${exp.years}}{${exp.position}}{\\textcolor{black}{${formatDetailsAsItemList(exp.details)}}}\n`;
         }
     });
   }
@@ -457,7 +461,7 @@ function escapeLatexCharacters(str) {
           latexDocument += `\n`;
         } else {
           // Multiline description
-          latexDocument += `\\entryItems{${proj.name}}{}{}{${formatDetailsAsItemList(proj.description)}}\n`;
+          latexDocument += `\\entryItems{${proj.name}}{}{}{\\textcolor{black}{${formatDetailsAsItemList(proj.description)}}}\n`;
         }
     });
   }
