@@ -450,8 +450,6 @@ html, body {
     color: #666666; /* Darker text color for disabled buttons */
   }
   
-
-  
   .start, .generate, .spinners {
     display: flex;
     flex-direction: row;
@@ -508,10 +506,16 @@ html, body {
 
   .indexDesc {
     font-family: 'Overpass', sans-serif; /* Consistent with the rest of your design */
-    font-size: 18px; /* Adjust to your preference */
     line-height: 1.6; /* This is generally a good line height for readability */
     color: #31312F; /* Setting a readable color */
     margin: 20px 0; /* Adds some space outside, above and below the div */
-    max-width: 800px; /* Optional: controls the width of the text block */
+    max-width: 90%; /* Use percentage for max-width */
     margin: auto; /* Centers the div if max-width is set */
+    position: relative; /* Needed for absolute positioning of children */
+    font-weight: 450;
+    font-size: 18px; /* Adjust to your preference */
 }
+    .indexDesc #textLogo {
+    width: 70%; /* 60% of the parent element's width */
+    display: block; /* Makes it a block-level element */
+  }
