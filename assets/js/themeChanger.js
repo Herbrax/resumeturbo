@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateThemeColors() {
       const colorTheme = valueContainerColor.textContent;
       const root = document.documentElement;
-  
+      let dotColor, lineColor;
       switch(colorTheme) {
         case 'Blue':
           // Set variables for Blue theme
@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
           root.style.setProperty('--secondaryButtonHoverColor', '#cccccc');
           root.style.setProperty('--linearGradient1', '#006d8c'); 
           root.style.setProperty('--linearGradient2', '#1cb4c6'); 
+          dotColor = '#5cbdaa';
+          lineColor = '#5cbdaa';
           break;
         case 'Red':
           // Set variables for Red theme
@@ -33,7 +35,9 @@ document.addEventListener('DOMContentLoaded', function () {
           root.style.setProperty('--primaryButtonHoverColor', '#9b1128'); 
           root.style.setProperty('--secondaryButtonHoverColor', '#cccccc'); 
           root.style.setProperty('--linearGradient1', '#800000');
-          root.style.setProperty('--linearGradient2', '#ff3333'); 
+          root.style.setProperty('--linearGradient2', '#ff3333');
+          dotColor = '#6c0909';
+          lineColor = '#6c0909'; 
           break;
         case 'Purple':
           // Set variables for Purple theme
@@ -42,27 +46,37 @@ document.addEventListener('DOMContentLoaded', function () {
           root.style.setProperty('--primaryButtonHoverColor', '#660066');
           root.style.setProperty('--secondaryButtonHoverColor', '#cccccc');
           root.style.setProperty('--linearGradient1', '#4d004d'); 
-          root.style.setProperty('--linearGradient2', '#b300b3'); 
+          root.style.setProperty('--linearGradient2', '#b300b3');
+          dotColor = '#800080';
+          lineColor = '#800080'
           break;
-          case 'Green':
-            // Set variables for Purple theme
-            root.style.setProperty('--primaryButtonColor', '#324E2E');
-            root.style.setProperty('--secondaryButtonColor', '#E0E0E0');
-            root.style.setProperty('--primaryButtonHoverColor', '#4A7344');
-            root.style.setProperty('--secondaryButtonHoverColor', '#cccccc');
-            root.style.setProperty('--linearGradient1', '#006400'); 
-            root.style.setProperty('--linearGradient2', '#60c060'); 
-            break;
+        case 'Green':
+          // Set variables for Purple theme
+          root.style.setProperty('--primaryButtonColor', '#324E2E');
+          root.style.setProperty('--secondaryButtonColor', '#E0E0E0');
+          root.style.setProperty('--primaryButtonHoverColor', '#4A7344');
+          root.style.setProperty('--secondaryButtonHoverColor', '#cccccc');
+          root.style.setProperty('--linearGradient1', '#006400'); 
+          root.style.setProperty('--linearGradient2', '#60c060');
+          dotColor = '#324E2E';
+          lineColor = '#324E2E';
+          break;
         case 'Black':
-            root.style.setProperty('--primaryButtonColor', '#515151');
-            root.style.setProperty('--secondaryButtonColor', '#E0E0E0'); 
-            root.style.setProperty('--primaryButtonHoverColor', '#867d7d'); 
-            root.style.setProperty('--secondaryButtonHoverColor', '#cccccc'); 
-            root.style.setProperty('--linearGradient1', '#006d8c'); 
-            root.style.setProperty('--linearGradient2', '#ff3333'); 
+          root.style.setProperty('--primaryButtonColor', '#515151');
+          root.style.setProperty('--secondaryButtonColor', '#E0E0E0'); 
+          root.style.setProperty('--primaryButtonHoverColor', '#867d7d'); 
+          root.style.setProperty('--secondaryButtonHoverColor', '#cccccc'); 
+          root.style.setProperty('--linearGradient1', '#006d8c'); 
+          root.style.setProperty('--linearGradient2', '#ff3333');
+          dotColor = '#3b5373'; 
+          lineColor = '#6b3e55';
           break;
         // Add more cases as needed
       }
+      particleground(document.getElementById('particleground'), {
+        dotColor: dotColor,
+        lineColor: lineColor
+      });
     }
     // Attach an event listener to your color spinner
     colorSpinnerContainer.addEventListener('click', updateThemeColors);
@@ -84,18 +98,18 @@ document.addEventListener('DOMContentLoaded', function () {
         currentStyleIndex = (currentStyleIndex - 1 + styles.length) % styles.length;
       }
       valueContainerStyle.textContent = styles[currentStyleIndex];
-      // Check if the selected style is 'Style C'
-      if (valueContainerStyle.textContent === 'Style C') {
+      // Check if the selected style is 'Jake's Resume'
+      if (valueContainerStyle.textContent === 'Jake\'s Resume') {
         // Set color to Black and disable color spinner buttons
         valueContainerColor.textContent = 'Black';
         leftButtonColor.disabled = true;
         rightButtonColor.disabled = true;
+        updateThemeColors();
       } else {
         // Enable color spinner buttons
         leftButtonColor.disabled = false;
         rightButtonColor.disabled = false;
       }
-      updateThemeColors();
       updateCarouselImages(valueContainerStyle.textContent);
     }
 

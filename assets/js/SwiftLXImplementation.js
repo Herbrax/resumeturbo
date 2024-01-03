@@ -8,7 +8,7 @@ let lastCompiledStyle = null; // Global variable to track the last compiled styl
     async function init() {
     await globalEn.loadEngine();
     await dvipdfmxEn.loadEngine();
-    compileBtn.innerHTML = "Compile";
+    compileBtn.innerHTML = "Compile PDF";
     compileBtn.className = "primaryButton";
     compileBtn.disabled = false;
     }
@@ -19,29 +19,31 @@ let lastCompiledStyle = null; // Global variable to track the last compiled styl
         return;
     }
     const currentStyle = document.querySelector(".spinner-value").textContent;
-    if (lastCompiledStyle === "Style B" && currentStyle !== "Style B") {
-      // Because the style B don't work at all 
+    if (lastCompiledStyle === "Omar\'s Resume" && currentStyle !== "Omar\'s Resume") {
+      // Because the Omar\'s Resume crash the other styles, we need to close the worker and reload the engine
       await globalEn.closeWorker();
       await globalEn.loadEngine(); // Assuming there's a method to reload the engine
     }
 
     compileBtn.disabled = true;
-    compileBtn.innerHTML = "Compiling...";
+    compileBtn.innerHTML = "Compiling... (30s)";
     compileBtn.className = "secondaryButton";
     const latexSource =  exportLatex();
     console.log(latexSource); // Log the LaTeX document
     lastCompiledStyle = currentStyle;
-    globalEn.writeMemFSFile("main.tex", latexSource);
-    globalEn.setEngineMainFile("main.tex");
+    globalEn.writeMemFSFile("Resume.tex", latexSource);
+    globalEn.setEngineMainFile("Resume.tex");
     let r = await globalEn.compileLaTeX();
-    compileBtn.innerHTML = "Compile";
-    compileBtn.className = "primaryButton";
-    compileBtn.disabled = false;
+    compileBtn.innerHTML = "Rendering PDF";
 
   if (r.status === 0) {
     dvipdfmxEn.writeMemFSFile("main.xdv", r.pdf);
     dvipdfmxEn.setEngineMainFile("main.xdv");
     let r1 = await dvipdfmxEn.compilePDF();
+    console.log("pdf ready")
+    compileBtn.innerHTML = "Compile PDF";
+    compileBtn.className = "primaryButton";
+    compileBtn.disabled = false;
     const pdfblob = new Blob([r1.pdf], {type: 'application/pdf'});
     const objectURL = URL.createObjectURL(pdfblob);
     setTimeout(() => {
@@ -54,6 +56,11 @@ let lastCompiledStyle = null; // Global variable to track the last compiled styl
     }    
     const pdfViewer = document.getElementById("pdf-viewer");
     pdfViewer.src = `assets/js/pdfjs/web/viewer.html?file=${encodeURIComponent(objectURL)}`;
+  } else {
+    alert("Compilation failed. Invalid characters in LaTeX");
+    compileBtn.innerHTML = "Compile PDF";
+    compileBtn.className = "primaryButton";
+    compileBtn.disabled = false;
   }
 }
 

@@ -81,7 +81,6 @@
   function formatDetailsAsItemList(details) {
     const items = details.split("\n"); // Assuming each point is separated by a newline
     if (items.length <= 1) {
-      console.log("not an item list");
       return details;
     }
     return `{
