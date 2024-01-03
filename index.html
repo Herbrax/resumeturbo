@@ -123,22 +123,28 @@
         </div>    
         <div class="container">
             <div class="left-panel">
+                <div class="indexDesc"><p>ResumeTurbo provides a straightforward solution for crafting professional resumes, specifically designed for engineers. Emphasizing simplicity and efficiency, this platform steers clear of unnecessary complexities, ensuring a hassle-free experience. Privacy is a priority – there's no need for data collection, account creation, or any fee, offering a completely free service.</p> 
+                <p>With a selection of acclaimed templates, including ModernCV and Jake's Resume, users have the flexibility to download their resume in TeX format or compile it directly into an ATS-friendly PDF, all within the browser. ResumeTurbo stands as the definitive tool for engineers seeking to make a striking impact in their job search, delivering refined and effective resumes with ease.</p></div>
                 <div class="dashboardContent">
-                    <button id="compilebtn" disabled>Initializing</button>
-                    <button id="startCvButton" class="primaryButton">Start CV</button>
-                    <button id="resetIdButton" class="primaryButton" onclick="generateUserId()">reset ID</button>
-                    <button id="exportLatexButton" class="primaryButton" onclick="downloadLatexFile()">Download LaTeX</button>
-                    <div class="spinner-container" id="styleSpinner">
-                        <button class="primaryButton spinner-button-left">-</button>
-                        <div class="spinner-value">Style A</div>
-                        <button class="primaryButton spinner-button-right">+</button>
-                      </div>    
-                      <div class="spinner-container" id="colorSpinner">
-                        <button class="primaryButton spinner-button-left">-</button>
-                        <div class="spinner-value">Blue</div>
-                        <button class="primaryButton spinner-button-right">+</button>
-                      </div>                           
-                </div>
+                    <div class="start">
+                        <button id="startCvButton" class="primaryButton">Start CV</button>                    
+                    </div>
+                    <div class="generate">
+                        <button id="compilebtn" disabled>Initializing</button>
+                        <button id="exportLatexButton" class="primaryButton" onclick="downloadLatexFile()">Download LaTeX</button>
+                    </div>
+                    <div class="spinners">
+                        <div class="spinner-container" id="styleSpinner">
+                            <button class="primaryButton spinner-button-left" >&lt;</button>
+                            <div class="spinner-value">ModernCV</div>
+                            <button class="primaryButton spinner-button-right" >&gt;</button>
+                        </div>    
+                        <div class="spinner-container" id="colorSpinner">
+                            <button class="primaryButton spinner-button-left" >&lt;</button>
+                            <div class="spinner-value">Blue</div>
+                            <button class="primaryButton spinner-button-right" >&gt;</button>
+                        </div></div>                           
+                    </div>
             </div>
             <div class="right-panel">
                 <div class="wrapper" id="carousel">

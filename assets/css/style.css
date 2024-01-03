@@ -57,7 +57,20 @@ html, body {
     padding-top: 24px;
     padding-bottom: 24px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; /* Allows elements to wrap onto the next line */
+    align-items: center; /* Aligns items vertically in the center */
+    position: absolute;
+    bottom: 10px; /* Positioned 10px above the bottom of the left-panel */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
 }
+
+.dashboardContent > * {
+ margin-bottom: 2px;
+}
+
 .primaryButton {
     display: flex;
     flex-direction: row;
@@ -386,7 +399,6 @@ html, body {
     display: flex;
     flex-direction: row; /* Ensure panels are laid out horizontally */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for better contrast */
-    background-color: #fff; /* White background for the container */
     overflow: hidden; /* In case the content overflows */
     border-radius: 20px; /* Rounded corners */
     z-index: 1;
@@ -399,17 +411,17 @@ html, body {
     align-items: center;
     position: relative;
     min-width: 300px; /* Minimum width to prevent squishing too much */
-    /* ... other existing styles ... */
 }
 
 .left-panel {
     width: 50%;
-    background-color: #f2f2f2; /* Light grey background for the carousel */
+    background-color: rgba(242, 242, 242, 0.6); /* 50% transparency */
 }
 
 .right-panel {
     width: 50%;
     flex-direction: column;
+    background-color: rgba(242, 242, 242, 0.3); /* 50% transparency */
 }
 
 #pdf-viewer {
@@ -432,37 +444,39 @@ html, body {
     width: auto;
   }
   
-  .spinner-button,
-  .spinner-value {
-    margin: 0; /* Removes space between the elements */
-    padding: 12px; /* Matches the primaryButton padding */
-    border: none; /* Removes border */
-    font-family: "Overpass"; /* Matches the font of primaryButton */
-    font-size: 15px; /* Matches the font size of primaryButton */
-    cursor: pointer; /* Adds the pointer cursor to buttons */
-  }
-  
-  .spinner-button-left {
-    background-color: var(--primaryButtonColor); /* Uses the primary button color variable */
-    color: white; /* Sets text color to white */
-    border-radius:0px;
-    border-bottom-left-radius: 8px; /* Rounds the bottom left corner */
-    border-top-left-radius: 8px; /* Rounds the bottom left corner */
-  }
-
-  .spinner-button-right {
-    background-color: var(--primaryButtonColor); /* Uses the primary button color variable */
-    color: white; /* Sets text color to white */
-    border-radius:0px;
-    border-bottom-right-radius: 8px; /* Rounds the bottom left corner */
-    border-top-right-radius: 8px; /* Rounds the bottom left corner */
-  }
 
   .spinner-button-left:disabled, .spinner-button-right:disabled {
     background-color: #CCCCCC; /* Gray color for disabled buttons */
     color: #666666; /* Darker text color for disabled buttons */
   }
   
+
+  
+  .start, .generate, .spinners {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+}
+
+.start > *, .generate > *, .spinners > .spinner-container {
+    flex: 1; /* This makes each direct child of .generate and each .spinner-container in .spinners take equal space */
+    height:40px;
+    width:170px;
+}
+
+  .spinner-button,
+  .spinner-value {
+    flex: 17 0 0; /* flex-grow is 6, flex-basis is 0 */
+    margin: 0; /* Removes space between the elements */
+    padding: 12px; /* Matches the primaryButton padding */
+    border: none; /* Removes border */
+    text-align: center; /* Center text alignment for multi-line text */
+    font-family: "Overpass"; /* Matches the font of primaryButton */
+    cursor: pointer; /* Adds the pointer cursor to buttons */
+  }
+
   .spinner-value {
     background-color: var(--secondaryButtonColor); /* Uses the secondary button color variable */
     color: #31312F; /* Sets text color to match secondaryButton text */
@@ -471,8 +485,33 @@ html, body {
     align-items: center;
     border-radius:0px;
     flex-direction: row;
-    font-family: "Overpass";
-    font-size: 15px;
+    font-size: 13px;
+    font-weight: 550; /* Makes the text bolder */
+
   }
   
-  
+  .spinner-button-left, .spinner-button-right {
+    flex: 1 0 0; /* flex-grow is 1, flex-basis is 0 */
+    background-color: var(--primaryButtonColor); /* Uses the primary button color variable */
+    color: white; /* Sets text color to white */
+    border-radius:0px;
+  }
+
+  .spinner-button-left {
+    border-bottom-left-radius: 8px; /* Rounds the bottom left corner */
+    border-top-left-radius: 8px; /* Rounds the bottom left corner */
+  }
+  .spinner-button-right {
+    border-bottom-right-radius: 8px; /* Rounds the bottom left corner */
+    border-top-right-radius: 8px; /* Rounds the bottom left corner */
+  }
+
+  .indexDesc {
+    font-family: 'Overpass', sans-serif; /* Consistent with the rest of your design */
+    font-size: 18px; /* Adjust to your preference */
+    line-height: 1.6; /* This is generally a good line height for readability */
+    color: #31312F; /* Setting a readable color */
+    margin: 20px 0; /* Adds some space outside, above and below the div */
+    max-width: 800px; /* Optional: controls the width of the text block */
+    margin: auto; /* Centers the div if max-width is set */
+}

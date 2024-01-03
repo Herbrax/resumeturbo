@@ -1,5 +1,4 @@
-
-function escapeLatexCharacters(str) {
+  function escapeLatexCharacters(str) {
     return str.replace(/\\/g, '\\textbackslash')
               .replace(/~/g, '\\textasciitilde')
               .replace(/\$/g, '\\$')
@@ -288,7 +287,187 @@ function escapeLatexCharacters(str) {
   return latexDocument;
   }
   
-  function generateLatex2(personalInfo, socialLinks, about, education, workExperience, projects, resumeSkills, color) {
+  function generateLatex2(personalInfo, socialLinks, about, education, workExperience, projects, resumeSkills) {
+    console.log("Generating latex document 3");
+    let latexDocument = `
+  \\documentclass[letterpaper,11pt]{article}
+  \\usepackage[empty]{fullpage}
+  \\usepackage{titlesec}
+  \\usepackage[usenames,dvipsnames]{color}
+  \\usepackage{enumitem}
+  \\usepackage[hidelinks]{hyperref}
+  \\usepackage[english]{babel}
+  \\usepackage{tabularx}
+  \\addtolength{\\oddsidemargin}{-0.5in}
+  \\addtolength{\\evensidemargin}{-0.5in}
+  \\addtolength{\\textwidth}{1in}
+  \\addtolength{\\topmargin}{-.5in}
+  \\addtolength{\\textheight}{1.0in}
+  \\urlstyle{same}
+  \\raggedbottom
+  \\raggedright
+  \\setlength{\\tabcolsep}{0in}
+  \\titleformat{\\section}{
+    \\vspace{-4pt}\\scshape\\raggedright\\large
+  }{}{0em}{}[\\color{black}\\titlerule \\vspace{-5pt}]
+  \\newcommand{\\resumeItem}[1]{
+    \\item\\small{
+      {#1 \\vspace{-2pt}}
+    }
+  }
+  \\newcommand{\\resumeSubheading}[5]{
+    \\vspace{-2pt}\\item
+      \\begin{tabular*}{0.97\\textwidth}[t]{l@{\\extracolsep{\\fill}}r}
+        \\textbf{#1} & #2 \\\\
+        \\textit{\\small#3} & \\textit{\\small #4} \\\\
+      \\end{tabular*}
+      {#5}\\\\}
+  \\newcommand{\\resumeSubheadingBis}[4]{
+    \\vspace{-2pt}\\item
+      \\begin{tabular*}{0.97\\textwidth}[t]{l@{\\extracolsep{\\fill}}r}
+        \\textbf{#1} & #2 \\\\
+        \\textit{\\small#3} & \\textit{\\small #4} \\\\
+      \\end{tabular*}\\vspace{-7pt}}
+  \\newcommand{\\resumeSubSubheading}[2]{
+      \\item
+      \\begin{tabular*}{0.97\\textwidth}{l@{\\extracolsep{\\fill}}r}
+        \\textit{\\small#1} & \\textit{\\small #2} \\
+      \\end{tabular*}\\vspace{-7pt}}
+  \\newcommand{\\resumeProjectHeading}[2]{
+      \\item
+      \\begin{tabular*}{0.97\\textwidth}{l@{\\extracolsep{\\fill}}r}
+        \\small#1 & #2 \\
+      \\end{tabular*}\\vspace{-7pt}}
+  \\newcommand{\\resumeSubItem}[1]{\\resumeItem{#1}\\vspace{-4pt}}
+  \\renewcommand\\labelitemii{\$\\vcenter{\\hbox{\\tiny\$\\bullet\$}}\$}
+  \\newcommand{\\resumeSubHeadingListStart}{\\begin{itemize}[leftmargin=0.15in, label={}]}
+  \\newcommand{\\resumeSubHeadingListEnd}{\\end{itemize}}
+  \\newcommand{\\resumeSkillsListStart}{\\begin{itemize}[leftmargin=0.15in, label={}, noitemsep, topsep=0pt, partopsep=0pt]}
+  \\newcommand{\\resumeSkillsListEnd}{\\end{itemize}}  
+  \\newcommand{\\resumeItemListStart}{\\begin{itemize}}
+  \\newcommand{\\resumeItemListEnd}{\\end{itemize}\\vspace{-5pt}}
+  \\begin{document}
+  
+  \\begin{center}
+  \\textbf{\\Huge \\scshape ${personalInfo.surname} ${personalInfo.lastname}} \\\\ \\vspace{1pt}`;
+      let contactDetails = [];
+      if (personalInfo.contact.phone) {
+          contactDetails.push(`\\small ${personalInfo.contact.phone}`);
+      }
+      if (personalInfo.contact.email) {
+          contactDetails.push(`\\href{mailto:${personalInfo.contact.email}}{{${personalInfo.contact.email}}}`);
+      }
+      if (socialLinks.linkedin) {
+          contactDetails.push(`\\href{${socialLinks.linkedin}}{{${socialLinks.linkedin}}}`);
+      }
+      if (socialLinks.github) {
+          contactDetails.push(`\\href{${socialLinks.github}}{{${socialLinks.github}}}`);
+      }
+  
+      // Joining the contact details with separator and adding to document
+      latexDocument += contactDetails.join(" $|$ ");
+      latexDocument += `\\end{center}`;
+  
+      if (about && about.description.trim() !== '') {
+        latexDocument += `
+    \\section{About}
+    ${about.description}`;
+      }
+    
+      if (resumeSkills && resumeSkills.length > 0) {
+        latexDocument += `
+    \\section{Skills}
+    \\resumeSkillsListStart
+        `;
+        resumeSkills.forEach((skill, index) => {
+          if (skill.type && skill.skills.length > 0) {
+            latexDocument += `\\item\\textbf{${skill.type}:} ${skill.skills.join(', ')}`;
+            if (index < resumeSkills.length - 1) {
+              latexDocument += `\\\\\n`;
+            }
+          }
+        });
+        latexDocument += `
+    \\resumeSubHeadingListEnd`;
+      }
+    
+      if (education && education.length > 0) {
+        latexDocument += `
+    \\section{Education}
+    \\resumeSubHeadingListStart`;
+        education.forEach(edu => {
+          latexDocument += `
+          \\resumeSubheading
+            {${edu.institution}}{}
+            {${edu.degree} in ${edu.field}}{${edu.year}}{${edu.details}}`;
+        });
+        latexDocument += `
+    \\resumeSubHeadingListEnd`;
+      }
+    
+      if (workExperience && workExperience.length > 0) {
+        latexDocument += `
+      \\section{Experience}
+      \\resumeSubHeadingListStart`;
+        workExperience.forEach(exp => {
+          latexDocument += `
+          \\resumeSubheadingBis
+            {${exp.position}}{${exp.years}}
+            {${exp.company}}{${exp.location}}{
+            \\resumeItemListStart`;
+          // Check if details are multiline
+          if (exp.details.includes("\n")) {
+            exp.details.split("\n").forEach(item => {
+              if (item.trim() !== '') {
+                latexDocument += `\\resumeItem{${item}}\n`;
+              }
+            });
+          } else {
+            // Single line detail
+            latexDocument += `\\resumeItem{${exp.details}}\n`;
+          }
+          latexDocument += `
+            \\resumeItemListEnd}`;
+        });
+        latexDocument += `
+      \\resumeSubHeadingListEnd`;
+      }
+      
+      if (projects && projects.length > 0) {
+        latexDocument += `
+      \\section{Projects}
+      \\resumeSubHeadingListStart`;
+        projects.forEach(proj => {
+          latexDocument += `
+          \\resumeProjectHeading
+            {\\textbf{${proj.name}}}{}`;
+          // Check if project description is multiline
+          if (proj.description.includes("\n")) {
+            latexDocument += `\\resumeItemListStart`;
+            proj.description.split("\n").forEach(desc => {
+              if (desc.trim() !== '') {
+                latexDocument += `\\resumeItem{${desc}}\n`;
+              }
+            });
+            latexDocument += `\\resumeItemListEnd`;
+          } else {
+            // Single line description
+            latexDocument += `\\resumeItemListStart`;
+            latexDocument += `{\\resumeItem{${proj.description}}}`;
+            latexDocument += `\\resumeItemListEnd`;
+          }
+        });
+        latexDocument += `
+      \\resumeSubHeadingListEnd`;
+      }
+  
+    
+      latexDocument += `
+    \\end{document}`;
+      return latexDocument;
+    }
+
+  function generateLatex3(personalInfo, socialLinks, about, education, workExperience, projects, resumeSkills, color) {
     console.log("Generating latex document 2 ");
     
     // Initialize color variables
@@ -472,212 +651,34 @@ function escapeLatexCharacters(str) {
     return latexDocument;
   }
   
-  function generateLatex3(personalInfo, socialLinks, about, education, workExperience, projects, resumeSkills) {
-    console.log("Generating latex document 3");
-    let latexDocument = `
-  \\documentclass[letterpaper,11pt]{article}
-  \\usepackage[empty]{fullpage}
-  \\usepackage{titlesec}
-  \\usepackage[usenames,dvipsnames]{color}
-  \\usepackage{enumitem}
-  \\usepackage[hidelinks]{hyperref}
-  \\usepackage[english]{babel}
-  \\usepackage{tabularx}
-  \\addtolength{\\oddsidemargin}{-0.5in}
-  \\addtolength{\\evensidemargin}{-0.5in}
-  \\addtolength{\\textwidth}{1in}
-  \\addtolength{\\topmargin}{-.5in}
-  \\addtolength{\\textheight}{1.0in}
-  \\urlstyle{same}
-  \\raggedbottom
-  \\raggedright
-  \\setlength{\\tabcolsep}{0in}
-  \\titleformat{\\section}{
-    \\vspace{-4pt}\\scshape\\raggedright\\large
-  }{}{0em}{}[\\color{black}\\titlerule \\vspace{-5pt}]
-  \\newcommand{\\resumeItem}[1]{
-    \\item\\small{
-      {#1 \\vspace{-2pt}}
-    }
-  }
-  \\newcommand{\\resumeSubheading}[5]{
-    \\vspace{-2pt}\\item
-      \\begin{tabular*}{0.97\\textwidth}[t]{l@{\\extracolsep{\\fill}}r}
-        \\textbf{#1} & #2 \\\\
-        \\textit{\\small#3} & \\textit{\\small #4} \\\\
-      \\end{tabular*}
-      {#5}\\\\}
-  \\newcommand{\\resumeSubheadingBis}[4]{
-    \\vspace{-2pt}\\item
-      \\begin{tabular*}{0.97\\textwidth}[t]{l@{\\extracolsep{\\fill}}r}
-        \\textbf{#1} & #2 \\\\
-        \\textit{\\small#3} & \\textit{\\small #4} \\\\
-      \\end{tabular*}\\vspace{-7pt}}
-  \\newcommand{\\resumeSubSubheading}[2]{
-      \\item
-      \\begin{tabular*}{0.97\\textwidth}{l@{\\extracolsep{\\fill}}r}
-        \\textit{\\small#1} & \\textit{\\small #2} \\
-      \\end{tabular*}\\vspace{-7pt}}
-  \\newcommand{\\resumeProjectHeading}[2]{
-      \\item
-      \\begin{tabular*}{0.97\\textwidth}{l@{\\extracolsep{\\fill}}r}
-        \\small#1 & #2 \\
-      \\end{tabular*}\\vspace{-7pt}}
-  \\newcommand{\\resumeSubItem}[1]{\\resumeItem{#1}\\vspace{-4pt}}
-  \\renewcommand\\labelitemii{\$\\vcenter{\\hbox{\\tiny\$\\bullet\$}}\$}
-  \\newcommand{\\resumeSubHeadingListStart}{\\begin{itemize}[leftmargin=0.15in, label={}]}
-  \\newcommand{\\resumeSubHeadingListEnd}{\\end{itemize}}
-  \\newcommand{\\resumeSkillsListStart}{\\begin{itemize}[leftmargin=0.15in, label={}, noitemsep, topsep=0pt, partopsep=0pt]}
-  \\newcommand{\\resumeSkillsListEnd}{\\end{itemize}}  
-  \\newcommand{\\resumeItemListStart}{\\begin{itemize}}
-  \\newcommand{\\resumeItemListEnd}{\\end{itemize}\\vspace{-5pt}}
-  \\begin{document}
-  
-  \\begin{center}
-  \\textbf{\\Huge \\scshape ${personalInfo.surname} ${personalInfo.lastname}} \\\\ \\vspace{1pt}`;
-      let contactDetails = [];
-      if (personalInfo.contact.phone) {
-          contactDetails.push(`\\small ${personalInfo.contact.phone}`);
-      }
-      if (personalInfo.contact.email) {
-          contactDetails.push(`\\href{mailto:${personalInfo.contact.email}}{{${personalInfo.contact.email}}}`);
-      }
-      if (socialLinks.linkedin) {
-          contactDetails.push(`\\href{${socialLinks.linkedin}}{{${socialLinks.linkedin}}}`);
-      }
-      if (socialLinks.github) {
-          contactDetails.push(`\\href{${socialLinks.github}}{{${socialLinks.github}}}`);
-      }
-  
-      // Joining the contact details with separator and adding to document
-      latexDocument += contactDetails.join(" $|$ ");
-      latexDocument += `\\end{center}`;
-  
-      if (about && about.description.trim() !== '') {
-        latexDocument += `
-    \\section{About}
-    ${about.description}`;
-      }
-    
-      if (resumeSkills && resumeSkills.length > 0) {
-        latexDocument += `
-    \\section{Skills}
-    \\resumeSkillsListStart
-        `;
-        resumeSkills.forEach((skill, index) => {
-          if (skill.type && skill.skills.length > 0) {
-            latexDocument += `\\item\\textbf{${skill.type}:} ${skill.skills.join(', ')}`;
-            if (index < resumeSkills.length - 1) {
-              latexDocument += `\\\\\n`;
-            }
-          }
-        });
-        latexDocument += `
-    \\resumeSubHeadingListEnd`;
-      }
-    
-      if (education && education.length > 0) {
-        latexDocument += `
-    \\section{Education}
-    \\resumeSubHeadingListStart`;
-        education.forEach(edu => {
-          latexDocument += `
-          \\resumeSubheading
-            {${edu.institution}}{}
-            {${edu.degree} in ${edu.field}}{${edu.year}}{${edu.details}}`;
-        });
-        latexDocument += `
-    \\resumeSubHeadingListEnd`;
-      }
-    
-      if (workExperience && workExperience.length > 0) {
-        latexDocument += `
-      \\section{Experience}
-      \\resumeSubHeadingListStart`;
-        workExperience.forEach(exp => {
-          latexDocument += `
-          \\resumeSubheadingBis
-            {${exp.position}}{${exp.years}}
-            {${exp.company}}{${exp.location}}{
-            \\resumeItemListStart`;
-          // Check if details are multiline
-          if (exp.details.includes("\n")) {
-            exp.details.split("\n").forEach(item => {
-              if (item.trim() !== '') {
-                latexDocument += `\\resumeItem{${item}}\n`;
-              }
-            });
-          } else {
-            // Single line detail
-            latexDocument += `\\resumeItem{${exp.details}}\n`;
-          }
-          latexDocument += `
-            \\resumeItemListEnd}`;
-        });
-        latexDocument += `
-      \\resumeSubHeadingListEnd`;
-      }
-      
-      if (projects && projects.length > 0) {
-        latexDocument += `
-      \\section{Projects}
-      \\resumeSubHeadingListStart`;
-        projects.forEach(proj => {
-          latexDocument += `
-          \\resumeProjectHeading
-            {\\textbf{${proj.name}}}{}`;
-          // Check if project description is multiline
-          if (proj.description.includes("\n")) {
-            latexDocument += `\\resumeItemListStart`;
-            proj.description.split("\n").forEach(desc => {
-              if (desc.trim() !== '') {
-                latexDocument += `\\resumeItem{${desc}}\n`;
-              }
-            });
-            latexDocument += `\\resumeItemListEnd`;
-          } else {
-            // Single line description
-            latexDocument += `\\resumeItemListStart`;
-            latexDocument += `{\\resumeItem{${proj.description}}}`;
-            latexDocument += `\\resumeItemListEnd`;
-          }
-        });
-        latexDocument += `
-      \\resumeSubHeadingListEnd`;
-      }
-  
-    
-      latexDocument += `
-    \\end{document}`;
-      return latexDocument;
-    }
-  
-  
-    function constructLatexDocument(personalInfo, socialLinks, about, education, workExperience, projects, resumeSkills) {
-      console.log("Constructing latex document");
-  
-      // Get the current style from the div
-      const styleSpinnerContainer = document.getElementById('styleSpinner');
-      const valueContainerStyle = styleSpinnerContainer.querySelector('.spinner-value');
-      const currentStyle = valueContainerStyle.textContent;
-      // Get the current color from the div
-      const colorSpinnerContainer = document.getElementById('colorSpinner');
-      const valueContainerColor = colorSpinnerContainer.querySelector('.spinner-value');
-      const currentColor = valueContainerColor.textContent.toLowerCase();
 
-      // Call the appropriate function based on the current style
-      switch (currentStyle) {
-          case 'Style A':
-              return generateLatex1(personalInfo, socialLinks, about, education, workExperience, projects, resumeSkills, currentColor);
-          case 'Style B':
-              return generateLatex2(personalInfo, socialLinks, about, education, workExperience, projects, resumeSkills, currentColor);
-          case 'Style C':
-              return generateLatex3(personalInfo, socialLinks, about, education, workExperience, projects, resumeSkills);
-          default:
-              console.error("Invalid style");
-              return "";
+  
+  
+  function constructLatexDocument(personalInfo, socialLinks, about, education, workExperience, projects, resumeSkills) {
+    console.log("Constructing latex document");
+  
+    // Get the current style from the div
+    const styleSpinnerContainer = document.getElementById('styleSpinner');
+    const valueContainerStyle = styleSpinnerContainer.querySelector('.spinner-value');
+    const currentStyle = valueContainerStyle.textContent;
+    // Get the current color from the div
+    const colorSpinnerContainer = document.getElementById('colorSpinner');
+    const valueContainerColor = colorSpinnerContainer.querySelector('.spinner-value');
+    const currentColor = valueContainerColor.textContent.toLowerCase();
+
+    // Call the appropriate function based on the current style
+    switch (currentStyle) {
+        case 'ModernCV':
+            return generateLatex1(personalInfo, socialLinks, about, education, workExperience, projects, resumeSkills, currentColor);
+        case 'Jake\'s Resume':
+            return generateLatex2(personalInfo, socialLinks, about, education, workExperience, projects, resumeSkills);
+        case 'Omar\'s Resume':
+            return generateLatex3(personalInfo, socialLinks, about, education, workExperience, projects, resumeSkills, currentColor);  
+        default:
+            console.error("Invalid style");
+            return "";
       }
-  }
+    }
   
   
   function exportLatex() { 
@@ -760,11 +761,8 @@ function escapeLatexCharacters(str) {
     setTimeout(() => {
         document.body.removeChild(downloadLink);
         URL.revokeObjectURL(downloadLink.href);
-    }, 100);
+    }, 10000);
   }
-
-
-
 
   export { downloadLatexFile };
   export { exportLatex };

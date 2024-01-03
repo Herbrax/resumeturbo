@@ -29,33 +29,33 @@ document.addEventListener('DOMContentLoaded', function () {
         case 'Red':
           // Set variables for Red theme
           root.style.setProperty('--primaryButtonColor', '#6c0909');
-          root.style.setProperty('--secondaryButtonColor', '#FFC0CB'); 
+          root.style.setProperty('--secondaryButtonColor', '#E0E0E0'); 
           root.style.setProperty('--primaryButtonHoverColor', '#9b1128'); 
-          root.style.setProperty('--secondaryButtonHoverColor', '#ffb3b3'); 
+          root.style.setProperty('--secondaryButtonHoverColor', '#cccccc'); 
           root.style.setProperty('--linearGradient1', '#800000');
           root.style.setProperty('--linearGradient2', '#ff3333'); 
           break;
         case 'Purple':
           // Set variables for Purple theme
           root.style.setProperty('--primaryButtonColor', '#800080');
-          root.style.setProperty('--secondaryButtonColor', '#D8BFD8');
+          root.style.setProperty('--secondaryButtonColor', '#E0E0E0');
           root.style.setProperty('--primaryButtonHoverColor', '#660066');
-          root.style.setProperty('--secondaryButtonHoverColor', '#e6cce6');
+          root.style.setProperty('--secondaryButtonHoverColor', '#cccccc');
           root.style.setProperty('--linearGradient1', '#4d004d'); 
           root.style.setProperty('--linearGradient2', '#b300b3'); 
           break;
           case 'Green':
             // Set variables for Purple theme
             root.style.setProperty('--primaryButtonColor', '#324E2E');
-            root.style.setProperty('--secondaryButtonColor', '#F1F1F1');
+            root.style.setProperty('--secondaryButtonColor', '#E0E0E0');
             root.style.setProperty('--primaryButtonHoverColor', '#4A7344');
-            root.style.setProperty('--secondaryButtonHoverColor', '#CFE2CE');
+            root.style.setProperty('--secondaryButtonHoverColor', '#cccccc');
             root.style.setProperty('--linearGradient1', '#006400'); 
             root.style.setProperty('--linearGradient2', '#60c060'); 
             break;
         case 'Black':
             root.style.setProperty('--primaryButtonColor', '#515151');
-            root.style.setProperty('--secondaryButtonColor', '#F1F1F1'); 
+            root.style.setProperty('--secondaryButtonColor', '#E0E0E0'); 
             root.style.setProperty('--primaryButtonHoverColor', '#867d7d'); 
             root.style.setProperty('--secondaryButtonHoverColor', '#cccccc'); 
             root.style.setProperty('--linearGradient1', '#006d8c'); 
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /////////////////////
     
     // Arrays of styles and colors to cycle through
-    const styles = ['Style A', 'Style B', 'Style C'];
+    const styles = ['ModernCV', 'Jake\'s Resume', 'Omar\'s Resume'];
     const colors = ['Blue', 'Red', 'Purple', 'Green', 'Black'];
     // Function to change the style in a given direction
     function changeStyle(direction) {
@@ -119,14 +119,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCarouselImages(style) {
         let folderName;
         switch (style) {
-            case 'Style A':
-                folderName = 'ModernResume';
+            case 'ModernCV':
+                folderName = 'ModernCV';
                 break;
-            case 'Style B':
-                folderName = 'OmarResume';
-                break;
-            case 'Style C':
+            case 'Jake\'s Resume':
                 folderName = 'JakesResume';
+                break;
+            case 'Omar\'s Resume':
+              folderName = 'OmarResume';
                 break;
         }
     
@@ -137,7 +137,6 @@ document.addEventListener('DOMContentLoaded', function () {
             let imageNumber = (i % 3) + 1;
             newCarouselContent += `<div class="carousel__item"><img src="assets/img/${folderName}/${imageNumber}.png"></div>`;
         }
-    
         carousel.innerHTML = newCarouselContent;
     }
 });

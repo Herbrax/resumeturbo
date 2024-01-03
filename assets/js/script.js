@@ -239,7 +239,6 @@ function addProjectEntry(projectData = {}) {
   initializeTextAreas();
 }
 
-
 function deleteEntry(element) {
   const containerId = element.parentNode.parentNode.id;
   const container = document.getElementById(containerId);
