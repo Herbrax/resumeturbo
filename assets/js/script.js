@@ -4,7 +4,7 @@ import { getFirestore, getDoc, setDoc, doc} from "https://www.gstatic.com/fireba
 import { downloadLatexFile } from '/assets/js/templates.js'; // Adjust the path as necessary
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD5JD6v_R14vchD1TgfgSBKlNDE0PYPDoE",
+  apiKey: "apikey",
   authDomain: "cvgen-906e8.firebaseapp.com",
   projectId: "cvgen-906e8",
   storageBucket: "cvgen-906e8.appspot.com",
